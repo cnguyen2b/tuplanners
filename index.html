@@ -3,7 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H&H Weddings — Vietnamese & English Wedding Planning</title>
+  <title>Vietnamese-English Wedding Planner Chicago | H&H Weddings</title>
+  <meta name="description" content="Bilingual Vietnamese & English wedding planning in Chicago. Specialists in tea ceremonies, Áo Dài coordination, and weddings that honour both cultures." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do we need to be Vietnamese to work with you?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not at all! We specialise in weddings that blend Vietnamese and Western traditions, but we warmly welcome any couple who wants to honour Vietnamese culture — whether that's one partner, both, or neither. If you love the idea of a tea ceremony, bilingual ceremony, or simply want someone who understands both worlds, we're your team."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you travel outside of Chicago?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! While we're based in Chicago, we're available for weddings across the US and internationally — including Vietnam. Travel fees may apply depending on location."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does tea ceremony coordination include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We guide the full ceremony in both languages — explaining each ritual to guests as it happens, coordinating the order of family members, managing timing, and making sure everyone feels included and honored. We can also advise on traditional elements like gifts, attire, and the correct order of proceedings for both Vietnamese and Western customs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer a free consultation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — always. We offer a complimentary 30-minute call to hear your story, answer your questions, and see if we're the right fit for each other. No pressure, no commitment."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -28,7 +69,6 @@
       overflow-x: hidden;
     }
 
-    /* LANGUAGE TOGGLE */
     .lang-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: flex-end;
@@ -46,7 +86,6 @@
     }
     .lang-btn.active { background: var(--gold); color: var(--warm-white); }
 
-    /* NAV */
     nav {
       position: fixed; top: 41px; left: 0; right: 0; z-index: 99;
       display: flex; justify-content: space-between; align-items: center;
@@ -79,7 +118,6 @@
     }
     .nav-cta:hover { background: var(--gold); color: var(--warm-white); }
 
-    /* BILINGUAL LOGIC */
     .vi-text { display: none; }
     .vi-inline { display: none; }
     body.vi .en-text { display: none; }
@@ -87,7 +125,6 @@
     body.vi .en-inline { display: none; }
     body.vi .vi-inline { display: inline; }
 
-    /* HERO */
     .hero {
       min-height: 100vh; padding-top: 100px;
       display: grid; grid-template-columns: 1fr 1fr;
@@ -143,15 +180,7 @@
     .hero-collage-item:nth-child(3) { grid-column: span 2; }
     .hero-collage-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
     .hero-collage-item:hover img { transform: scale(1.04); }
-    .hero-overlay {
-      position: absolute; bottom: 40px; left: -30px;
-      background: rgba(253,246,238,0.96); padding: 20px 28px;
-      border-left: 3px solid var(--gold);
-    }
-    .hero-overlay-stat { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--gold-dark); line-height: 1; }
-    .hero-overlay-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7060; margin-top: 4px; }
 
-    /* DIVIDER */
     .divider {
       display: flex; align-items: center; justify-content: center; gap: 20px;
       padding: 60px 48px 0; color: var(--gold);
@@ -159,17 +188,24 @@
     }
     .divider-line { flex: 1; max-width: 200px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-light), transparent); }
 
-    /* STORY */
     .story { padding: 80px 80px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .story-images { position: relative; height: 560px; }
-    .story-img-main { position: absolute; top: 0; left: 0; width: 72%; height: 80%; background: var(--blush); overflow: hidden; }
+    .story-img-main { position: absolute; top: 0; left: 0; width: 65%; height: 70%; background: var(--blush); overflow: hidden; box-shadow: 0 8px 30px rgba(44,36,32,0.10); }
     .story-img-main img { width: 100%; height: 100%; object-fit: cover; }
     .story-img-accent {
-      position: absolute; bottom: 0; right: 0; width: 55%; height: 48%;
+      position: absolute; bottom: 0; right: 0; width: 58%; height: 46%;
       background: var(--cream); border: 3px solid var(--warm-white); overflow: hidden;
-      box-shadow: 0 8px 40px rgba(44,36,32,0.12);
+      box-shadow: 0 8px 40px rgba(44,36,32,0.14);
+      z-index: 2;
     }
     .story-img-accent img { width: 100%; height: 100%; object-fit: cover; }
+    .story-img-floater {
+      position: absolute; top: 8%; right: 0; width: 40%; height: 42%;
+      background: var(--cream); border: 3px solid var(--warm-white); overflow: hidden;
+      box-shadow: 0 6px 24px rgba(44,36,32,0.12);
+      z-index: 3;
+    }
+    .story-img-floater img { width: 100%; height: 100%; object-fit: cover; }
     .photo-ph {
       width: 100%; height: 100%;
       background: linear-gradient(160deg, var(--blush), var(--gold-light));
@@ -177,14 +213,6 @@
       gap: 12px; color: var(--gold-dark);
     }
     .photo-ph span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; }
-    .story-badge {
-      position: absolute; top: 50%; left: 64%; transform: translate(-50%, -50%);
-      width: 90px; height: 90px; background: var(--gold); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; flex-direction: column;
-      color: var(--warm-white); font-family: 'Cormorant Garamond', serif;
-      font-size: 11px; font-style: italic; text-align: center; line-height: 1.3; padding: 8px; z-index: 3;
-      box-shadow: 0 4px 20px rgba(201,169,110,0.4);
-    }
     .section-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 300; line-height: 1.15; color: var(--charcoal); margin-bottom: 8px; }
     .section-title em { font-style: italic; color: var(--rose); }
@@ -192,12 +220,23 @@
     .section-body { font-size: 15px; font-weight: 300; line-height: 1.9; color: #6b5a52; margin-bottom: 20px; }
     .story-signature { margin-top: 32px; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-style: italic; color: var(--rose); }
 
-    /* SERVICES */
     .services { background: var(--cream); padding: 100px 80px; }
     .services-header { text-align: center; margin-bottom: 64px; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .service-card { background: var(--warm-white); padding: 48px 36px; position: relative; overflow: hidden; transition: transform 0.3s; }
-    .service-card:hover { transform: translateY(-6px); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; align-items: start; }
+    .service-card {
+      background: var(--warm-white);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(44,36,32,0.08);
+      z-index: 2;
+    }
     .service-card::before {
       content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
       background: linear-gradient(to right, var(--gold-light), var(--gold));
@@ -206,14 +245,66 @@
     .service-card:hover::before { transform: scaleX(1); }
     .service-icon { font-size: 32px; margin-bottom: 20px; }
     .service-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--charcoal); margin-bottom: 4px; }
-    .service-name-vi { font-family: 'Noto Serif', serif; font-size: 13px; font-style: italic; color: var(--gold-dark); margin-bottom: 16px; }
-    .service-desc { font-size: 14px; font-weight: 300; line-height: 1.8; color: #7a6860; }
-    .service-from { margin-top: 24px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: var(--gold-dark); }
-    .service-price { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--rose); }
+    .service-name-vi { font-family: 'Noto Serif', serif; font-size: 13px; font-style: italic; color: var(--gold-dark); margin-bottom: 20px; }
+    .service-pricing { padding: 16px 0; border-top: 1px solid rgba(201,169,110,0.25); border-bottom: 1px solid rgba(201,169,110,0.25); margin-bottom: 18px; }
+    .service-from { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 4px; }
+    .service-price { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--rose); line-height: 1; }
+    .service-booking { font-size: 12px; font-weight: 300; color: #8a7060; line-height: 1.6; margin-bottom: 18px; font-style: italic; }
+    .service-list-wrap {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+      opacity: 0;
+    }
+    .service-card:hover .service-list-wrap,
+    .service-card:focus-within .service-list-wrap {
+      max-height: 600px;
+      opacity: 1;
+      margin-bottom: 18px;
+    }
+    .service-list { list-style: none; padding: 0; margin: 0; }
+    .service-list li {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: #6b5a52;
+      padding: 7px 0 7px 24px;
+      position: relative;
+      border-bottom: 1px dashed rgba(201,169,110,0.18);
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .service-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--rose);
+      line-height: 1.5;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    .service-hint {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 14px;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    .service-card:hover .service-hint { opacity: 0; }
 
-    /* GALLERY */
     .gallery { padding: 100px 80px; }
-    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .gallery-header { margin-bottom: 48px; }
     .gallery-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
@@ -223,14 +314,7 @@
     .gallery-item { overflow: hidden; position: relative; cursor: pointer; }
     .gallery-item:nth-child(1) { grid-row: span 2; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-    .gallery-item:hover img { transform: scale(1.04); }
     .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-ph {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, var(--blush), var(--gold-light));
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--gold-dark);
-    }
-    .gallery-ph-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; }
     .gallery-overlay {
       position: absolute; inset: 0; background: rgba(44,36,32,0);
       transition: background 0.3s; display: flex; align-items: center; justify-content: center;
@@ -239,7 +323,6 @@
     .gallery-overlay span { color: white; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; opacity: 0; transform: translateY(8px); transition: all 0.3s; }
     .gallery-item:hover .gallery-overlay span { opacity: 1; transform: translateY(0); }
 
-    /* CULTURAL */
     .cultural { background: var(--charcoal); padding: 100px 80px; color: var(--cream); }
     .cultural .section-tag { color: var(--gold-light); }
     .cultural .section-title { color: var(--cream); }
@@ -251,12 +334,92 @@
     .cultural-feat-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--gold-light); margin-bottom: 6px; }
     .cultural-feat-vi { font-family: 'Noto Serif', serif; font-size: 12px; font-style: italic; color: var(--gold); margin-bottom: 8px; }
     .cultural-feat-desc { font-size: 13px; font-weight: 300; color: rgba(253,246,238,0.6); line-height: 1.7; }
-    .cultural-visual { position: relative; height: 500px; }
-    .cultural-img-frame { position: absolute; top: 0; right: 0; width: 85%; height: 75%; background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.3); }
-    .cultural-img-frame-inner { position: absolute; bottom: -30px; left: -30px; width: 65%; height: 55%; background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.2); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
-    .ao-dai-label { font-family: 'Noto Serif', serif; font-style: italic; font-size: 14px; color: var(--gold-light); text-align: center; line-height: 1.6; padding: 0 20px; }
 
-    /* TESTIMONIALS */
+    /* FAQ */
+    .faq { padding: 100px 80px; background: var(--warm-white); }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(201,169,110,0.25);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(201,169,110,0.25);
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 28px 56px 28px 4px;
+      position: relative;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::marker { content: ''; }
+    .faq-q-primary {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.35;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    body.vi .faq-q-primary {
+      font-family: 'Noto Serif', serif;
+      font-size: 20px;
+    }
+    .faq-q-secondary {
+      font-family: 'Noto Serif', serif;
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-dark);
+      margin-top: 6px;
+      display: block;
+    }
+    body.vi .faq-q-secondary {
+      font-family: 'Quicksand', sans-serif;
+      font-style: normal;
+    }
+    .faq-toggle {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.4s ease;
+      color: var(--gold-dark);
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .faq-item[open] .faq-toggle {
+      background: var(--gold);
+      color: var(--warm-white);
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .faq-item summary:hover .faq-q-primary { color: var(--gold-dark); }
+    .faq-item summary:hover .faq-toggle { background: rgba(201,169,110,0.15); }
+    .faq-answer {
+      padding: 0 56px 28px 4px;
+      animation: faqOpen 0.4s ease;
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #6b5a52;
+    }
+    @keyframes faqOpen {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .testimonials { padding: 100px 80px; background: var(--cream); }
     .testimonials-header { text-align: center; margin-bottom: 64px; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -266,13 +429,11 @@
     .testimonial-author { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); }
     .testimonial-detail { font-size: 12px; color: var(--gold-dark); letter-spacing: 0.08em; }
 
-    /* CONTACT */
     .contact { padding: 100px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .contact-form { display: flex; flex-direction: column; gap: 20px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 8px; }
     .form-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--charcoal); }
-    .form-label-vi { font-family: 'Noto Serif', serif; font-size: 11px; font-style: italic; color: var(--gold-dark); margin-left: 8px; }
     .form-input, .form-select, .form-textarea { padding: 14px 16px; background: var(--cream); border: 1px solid rgba(201,169,110,0.3); color: var(--charcoal); font-family: 'Quicksand', sans-serif; font-size: 14px; font-weight: 300; outline: none; transition: border-color 0.3s; width: 100%; }
     .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
     .form-textarea { resize: vertical; min-height: 120px; }
@@ -286,7 +447,6 @@
     .contact-detail-vi { font-family: 'Noto Serif', serif; font-size: 12px; font-style: italic; color: var(--gold-dark); margin-bottom: 6px; }
     .contact-detail-text { font-size: 14px; font-weight: 300; color: #7a6860; line-height: 1.7; }
 
-    /* FOOTER */
     footer { background: var(--charcoal); padding: 60px 80px 40px; color: rgba(253,246,238,0.6); }
     .footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,169,110,0.2); }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; letter-spacing: 0.15em; color: var(--cream); }
@@ -297,23 +457,22 @@
     .social-link:hover { border-color: var(--gold); background: rgba(201,169,110,0.1); }
     .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; font-weight: 300; }
 
-    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { height: 400px; position: relative; }
       .hero-left { padding: 60px 32px; }
       .story, .contact, .cultural { grid-template-columns: 1fr; gap: 48px; }
-      .story-images { height: 360px; }
-      .cultural-visual { display: none; }
+      .story-images { height: 440px; }
       .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .service-list-wrap { max-height: 600px; opacity: 1; margin-bottom: 18px; }
+      .service-hint { display: none; }
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
       .gallery-item:nth-child(1) { grid-column: span 2; height: 300px; }
-      .gallery-item:nth-child(4) { grid-column: span 2; }
       nav { padding: 18px 24px; }
       .nav-links { display: none; }
-      .story, .services, .gallery, .cultural, .testimonials, .contact, footer { padding-left: 24px; padding-right: 24px; }
+      .story, .services, .gallery, .cultural, .testimonials, .faq, .contact, footer { padding-left: 24px; padding-right: 24px; }
     }
-    /* ANIMATIONS */
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -322,10 +481,8 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    /* Hero animates on load */
     .hero-left { animation: fadeUp 0.9s ease both; }
     .hero-right { animation: fadeIn 1.1s ease 0.2s both; }
-    /* Scroll reveal — starts hidden, JS adds .visible */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -352,6 +509,7 @@
     <li><a href="#story"><span class="en-inline">Our Story</span><span class="vi-inline">Câu Chuyện</span></a></li>
     <li><a href="#services"><span class="en-inline">Services</span><span class="vi-inline">Dịch Vụ</span></a></li>
     <li><a href="#gallery"><span class="en-inline">Gallery</span><span class="vi-inline">Thư Viện</span></a></li>
+    <li><a href="#faq"><span class="en-inline">FAQ</span><span class="vi-inline">Câu Hỏi</span></a></li>
     <li><a href="#contact"><span class="en-inline">Contact</span><span class="vi-inline">Liên Hệ</span></a></li>
   </ul>
   <a href="#contact" class="nav-cta">
@@ -363,8 +521,8 @@
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">
-      <span class="en-inline">Vietnamese &amp; English Wedding Specialists</span>
-      <span class="vi-inline">Chuyên Gia Đám Cưới Việt &amp; Anh</span>
+      <span class="en-inline">Vietnamese &amp; English Wedding Specialists · Chicago &amp; Beyond</span>
+      <span class="vi-inline">Chuyên tổ chức đám cưới Việt – Anh</span>
     </p>
     <h1 class="hero-title">
       <span class="en-text">Where Two<br><em>Cultures</em><br>Become One</span>
@@ -375,8 +533,8 @@
       <span class="vi-inline">Two cultures, one love</span>
     </p>
     <p class="hero-desc">
-      <span class="en-text">We specialise in crafting weddings that honour both Vietnamese tradition and modern elegance — bilingual ceremonies filled with meaning, beauty, and the rituals that matter most to your family.</span>
-      <span class="vi-text">Chúng tôi chuyên tổ chức các đám cưới tôn vinh cả truyền thống Việt Nam lẫn vẻ đẹp hiện đại — lễ cưới song ngữ với sắc đỏ vàng, hoa xuân và những nghi lễ ý nghĩa nhất với gia đình bạn.</span>
+      <span class="en-text">We specialise in crafting weddings across Chicago and beyond that honour both Vietnamese tradition and modern elegance — bilingual ceremonies filled with meaning, beauty, and the rituals that matter most to your family.</span>
+      <span class="vi-text">Chúng tôi chuyên tổ chức các đám cưới tôn vinh cả truyền thống Việt Nam lẫn vẻ đẹp hiện đại — những buổi lễ song ngữ tràn đầy ý nghĩa, vẻ đẹp và các nghi lễ quan trọng nhất với gia đình bạn.</span>
     </p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary"><span class="en-inline">Start Planning</span><span class="vi-inline">Bắt Đầu Lên Kế Hoạch</span></a>
@@ -386,20 +544,13 @@
   <div class="hero-right">
     <div class="hero-collage">
       <div class="hero-collage-item">
-        <img src="Slot1-DramaticVerticalHero.JPG" alt="Wedding portrait">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot1-DramaticVerticalHero.JPG" alt="Wedding portrait">
       </div>
       <div class="hero-collage-item">
-        <img src="Slot2-HeroDetailShot.JPG" alt="Ceremony detail">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot2-HeroDetailShot.JPG" alt="Ceremony detail">
       </div>
       <div class="hero-collage-item">
-        <img src="Slot3-HeroReception.JPG" alt="Reception">
-      </div>
-    </div>
-    <div class="hero-overlay">
-      <div class="hero-overlay-stat">100%</div>
-      <div class="hero-overlay-label">
-        <span class="en-inline">Bilingual ceremonies</span>
-        <span class="vi-inline">Lễ cưới song ngữ</span>
+        <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot3-HeroReception-v2.JPG" alt="Reception">
       </div>
     </div>
   </div>
@@ -410,14 +561,14 @@
 <section class="story" id="story">
   <div class="story-images reveal">
     <div class="story-img-main">
-      <!-- PHOTO SLOT 4 -->
-      <div class="photo-ph"><img src="Slot4-StoryPortrait.JPG" style="width:100%;height:100%;object-fit:cover"></div>
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot4-StoryPortrait-v2.JPG" alt="Story portrait" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <div class="story-img-floater">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot11-StoryPortrait-v2.JPG" alt="Story portrait detail" style="width:100%;height:100%;object-fit:cover">
     </div>
     <div class="story-img-accent">
-      <!-- PHOTO SLOT 5 -->
-      <div class="photo-ph"><img src="Slot5-StoryLandscape.JPG" style="width:100%;height:100%;object-fit:cover"></div>
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot5-StoryLandscape-v2.JPG" alt="Story landscape" style="width:100%;height:100%;object-fit:cover">
     </div>
-    <div class="story-badge"><span style="font-size:18px">H&amp;H</span><span>Est.<br>2025</span></div>
   </div>
   <div class="reveal" style="transition-delay:0.15s">
     <p class="section-tag"><span class="en-inline">Our Story</span><span class="vi-inline">Câu Chuyện Của Chúng Tôi</span></p>
@@ -425,13 +576,13 @@
       <span class="en-text">Born from our own<br><em>wedding day</em></span>
       <span class="vi-text">Ra đời từ ngày<br><em>đám cưới của chúng tôi</em></span>
     </h2>
-    <p class="section-vi"><span class="en-inline">Được sinh ra từ tình yêu thực sự</span><span class="vi-inline">Born from true love</span></p>
+    <p class="section-vi"><span class="en-inline">Khởi nguồn từ chính đám cưới của chúng tôi</span><span class="vi-inline">Born from true love</span></p>
     <p class="section-body">
       <span class="en-text">When we planned our own Vietnamese and English wedding, we discovered something rare: a ceremony that moved guests from both cultures to tears — not despite its dual heritage, but because of it. Every tea ceremony ritual, every bilingual vow, every carefully chosen detail was woven together with intention.</span>
-      <span class="vi-text">Khi chúng tôi lên kế hoạch cho đám cưới Việt - Anh của mình, chúng tôi đã khám phá ra điều gì đó hiếm có: một buổi lễ khiến khách từ cả hai nền văn hóa đều xúc động đến rơi nước mắt — không phải mặc dù sự giao thoa văn hóa, mà chính vì nó. Mỗi nghi lễ rót trà, mỗi lời thề song ngữ, mỗi chi tiết được chọn lựa kỹ càng đều được kết hợp một cách có chủ đích.</span>
+      <span class="vi-text">Khi chúng tôi lên kế hoạch cho đám cưới Việt - Anh của mình, chúng tôi đã khám phá ra điều gì đó hiếm có: một buổi lễ khiến khách từ cả hai nền văn hóa đều xúc động đến rơi nước mắt — không phải mặc dù sự giao thoa văn hóa, mà chính vì nó. Mỗi nghi lễ gia tiên, mỗi lời thề song ngữ, mỗi chi tiết được chọn lựa kỹ càng đều được kết hợp một cách có chủ đích.</span>
     </p>
     <p class="section-body">
-      <span class="en-text">Guests kept saying: "You should do this for others." So here we are — H&H Weddings, built on the belief that your wedding should reflect every part of who you are, in both languages, for every person you love.</span>
+      <span class="en-text">Guests kept saying: "You should do this for others." So here we are — H&H Weddings, serving Chicago's Vietnamese and multicultural communities, built on the belief that your wedding should reflect every part of who you are, in both languages, for every person you love.</span>
       <span class="vi-text">Khách mời liên tục nói: "Các bạn nên làm điều này cho người khác." Và đây chúng tôi — H&H Weddings, được xây dựng trên niềm tin rằng đám cưới của bạn nên phản ánh con người bạn, bằng cả hai ngôn ngữ.</span>
     </p>
     <div class="story-signature">H &amp; H</div>
@@ -444,65 +595,133 @@
     <h2 class="section-title"><span class="en-text">Crafted for <em>your story</em></span><span class="vi-text">Được tạo ra cho <em>câu chuyện của bạn</em></span></h2>
   </div>
   <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">🌸</div>
-      <h3 class="service-name"><span class="en-inline">Full Planning</span><span class="vi-inline">Lên Kế Hoạch Toàn Bộ</span></h3>
-      <p class="service-name-vi"><span class="en-inline">Lên kế hoạch toàn bộ</span><span class="vi-inline">Full Planning</span></p>
-      <p class="service-desc"><span class="en-text">From first consultation to final send-off. We handle every detail — venue, vendors, bilingual ceremony script, décor, and day-of coordination — so you can be fully present for every moment.</span><span class="vi-text">Từ buổi tư vấn đầu tiên đến giờ khắc chia tay. Chúng tôi lo mọi chi tiết để bạn có thể hoàn toàn tận hưởng từng khoảnh khắc.</span></p>
-      <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
-      <div class="service-price">Contact us</div>
+
+    <!-- DAY-OF COORDINATION (leftmost) -->
+    <div class="service-card reveal" tabindex="0">
+      <div class="service-icon">🌺</div>
+      <h3 class="service-name"><span class="en-inline">Day-of Coordination</span><span class="vi-inline">Điều Phối Ngày Cưới</span></h3>
+      <p class="service-name-vi"><span class="en-inline">Điều phối trong ngày</span><span class="vi-inline">Day-of Coordination</span></p>
+      <div class="service-pricing">
+        <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
+        <div class="service-price">$700</div>
+      </div>
+      <p class="service-booking">
+        <span class="en-text">Book up to 12 months out · Services commence 4–6 weeks before your date</span>
+        <span class="vi-text">Đặt trước tối đa 12 tháng · Dịch vụ bắt đầu 4–6 tuần trước ngày cưới</span>
+      </p>
+      <div class="service-list-wrap">
+        <ul class="service-list">
+          <li><span class="en-inline">2 pre-wedding planning calls</span><span class="vi-inline">2 buổi tư vấn trước đám cưới</span></li>
+          <li><span class="en-inline">Detailed day-of timeline</span><span class="vi-inline">Lịch trình chi tiết trong ngày</span></li>
+          <li><span class="en-inline">Rehearsal attendance & direction</span><span class="vi-inline">Tham dự & điều phối tổng duyệt</span></li>
+          <li><span class="en-inline">Up to 10 hours on-site day-of</span><span class="vi-inline">Đến 10 giờ có mặt trong ngày</span></li>
+          <li><span class="en-inline">All vendor coordination on the day</span><span class="vi-inline">Điều phối toàn bộ nhà cung cấp</span></li>
+          <li><span class="en-inline">Tea ceremony & bilingual ceremony flow</span><span class="vi-inline">Lễ Gia Tiên & lễ song ngữ</span></li>
+          <li><span class="en-inline">Cultural customs guidance for both families</span><span class="vi-inline">Hướng dẫn phong tục cho cả hai gia đình</span></li>
+          <li><span class="en-inline">On-site emergency kit</span><span class="vi-inline">Bộ dụng cụ khẩn cấp tại chỗ</span></li>
+        </ul>
+      </div>
+      <p class="service-tagline">
+        <span class="en-text">You've planned it — let us bring it to life.</span>
+        <span class="vi-text">Bạn đã lên kế hoạch — để chúng tôi hiện thực hóa.</span>
+      </p>
+      <div class="service-hint"><span class="en-inline">Hover to see details ✦</span><span class="vi-inline">Di chuột để xem chi tiết ✦</span></div>
     </div>
-    <div class="service-card reveal" style="transition-delay:0.1s">
+
+    <!-- PARTIAL PLANNING (middle) -->
+    <div class="service-card reveal" style="transition-delay:0.1s" tabindex="0">
       <div class="service-icon">🏮</div>
       <h3 class="service-name"><span class="en-inline">Partial Planning</span><span class="vi-inline">Lên Kế Hoạch Một Phần</span></h3>
       <p class="service-name-vi"><span class="en-inline">Lên kế hoạch một phần</span><span class="vi-inline">Partial Planning</span></p>
-      <p class="service-desc"><span class="en-text">Already have the big pieces? We step in to coordinate the cultural elements, bilingual ceremony, vendor management, and create the cohesive vision that ties it all together.</span><span class="vi-text">Đã có những phần chính? Chúng tôi bước vào để điều phối các yếu tố văn hóa, lễ nghi song ngữ và tạo ra tầm nhìn gắn kết tất cả lại.</span></p>
-      <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
-      <div class="service-price">Contact us</div>
+      <div class="service-pricing">
+        <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
+        <div class="service-price">$2,000</div>
+      </div>
+      <p class="service-booking">
+        <span class="en-text">Book up to 18 months out · Services commence 4–6 months before your date</span>
+        <span class="vi-text">Đặt trước tối đa 18 tháng · Dịch vụ bắt đầu 4–6 tháng trước ngày cưới</span>
+      </p>
+      <div class="service-list-wrap">
+        <ul class="service-list">
+          <li><span class="en-inline">Everything in day-of coordination</span><span class="vi-inline">Bao gồm toàn bộ điều phối trong ngày</span></li>
+          <li><span class="en-inline">Up to 5 planning meetings</span><span class="vi-inline">Đến 5 buổi họp lên kế hoạch</span></li>
+          <li><span class="en-inline">Vendor recommendations & coordination (up to 4 vendors)</span><span class="vi-inline">Giới thiệu & điều phối nhà cung cấp (tối đa 4)</span></li>
+          <li><span class="en-inline">Budget tracking assistance</span><span class="vi-inline">Hỗ trợ theo dõi ngân sách</span></li>
+          <li><span class="en-inline">Bilingual ceremony script drafting</span><span class="vi-inline">Soạn thảo kịch bản lễ song ngữ</span></li>
+          <li><span class="en-inline">Month-of check-ins with all vendors</span><span class="vi-inline">Liên hệ nhà cung cấp tháng cận ngày cưới</span></li>
+          <li><span class="en-inline">Seating chart & floor plan assistance</span><span class="vi-inline">Hỗ trợ sơ đồ chỗ ngồi & bố trí</span></li>
+          <li><span class="en-inline">Áo dài coordination & tea ceremony planning</span><span class="vi-inline">Điều phối áo dài & Lễ Gia Tiên</span></li>
+          <li><span class="en-inline">Full weekend timeline creation</span><span class="vi-inline">Lịch trình trọn cả cuối tuần</span></li>
+        </ul>
+      </div>
+      <p class="service-tagline">
+        <span class="en-text">Already have the big pieces? We step in and bring it all together.</span>
+        <span class="vi-text">Đã có những phần chính? Chúng tôi sẽ gắn kết tất cả lại.</span>
+      </p>
+      <div class="service-hint"><span class="en-inline">Hover to see details ✦</span><span class="vi-inline">Di chuột để xem chi tiết ✦</span></div>
     </div>
-    <div class="service-card reveal" style="transition-delay:0.2s">
-      <div class="service-icon">🌺</div>
-      <h3 class="service-name"><span class="en-inline">Day Coordination</span><span class="vi-inline">Điều Phối Ngày Cưới</span></h3>
-      <p class="service-name-vi"><span class="en-inline">Điều phối trong ngày</span><span class="vi-inline">Day of Coordination</span></p>
-      <p class="service-desc"><span class="en-text">You've planned it — let us execute it. We arrive early, manage every vendor, guide both families through cultural customs, and ensure your day unfolds exactly as you imagined.</span><span class="vi-text">Bạn đã lên kế hoạch — để chúng tôi thực hiện. Chúng tôi đến sớm, quản lý mọi nhà cung cấp và hướng dẫn cả hai gia đình qua các phong tục văn hóa.</span></p>
-      <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
-      <div class="service-price">Contact us</div>
+
+    <!-- FULL PLANNING (rightmost) -->
+    <div class="service-card reveal" style="transition-delay:0.2s" tabindex="0">
+      <div class="service-icon">🌸</div>
+      <h3 class="service-name"><span class="en-inline">Full Planning</span><span class="vi-inline">Lên Kế Hoạch Toàn Bộ</span></h3>
+      <p class="service-name-vi"><span class="en-inline">Lên kế hoạch toàn bộ</span><span class="vi-inline">Full Planning</span></p>
+      <div class="service-pricing">
+        <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
+        <div class="service-price">$4,000</div>
+      </div>
+      <p class="service-booking">
+        <span class="en-text">Book up to 24 months out · Services commence from day one of your engagement</span>
+        <span class="vi-text">Đặt trước tối đa 24 tháng · Dịch vụ bắt đầu từ ngày đầu đính hôn</span>
+      </p>
+      <div class="service-list-wrap">
+        <ul class="service-list">
+          <li><span class="en-inline">Everything in partial planning</span><span class="vi-inline">Bao gồm toàn bộ kế hoạch một phần</span></li>
+          <li><span class="en-inline">Unlimited planning meetings</span><span class="vi-inline">Số buổi họp không giới hạn</span></li>
+          <li><span class="en-inline">Full vendor sourcing & contract review</span><span class="vi-inline">Tìm kiếm & rà soát hợp đồng nhà cung cấp</span></li>
+          <li><span class="en-inline">Complete budget creation & tracking</span><span class="vi-inline">Lập & theo dõi ngân sách trọn vẹn</span></li>
+          <li><span class="en-inline">Design mood board & aesthetic direction</span><span class="vi-inline">Bảng cảm hứng & định hướng thẩm mỹ</span></li>
+          <li><span class="en-inline">Full bilingual ceremony script & rehearsal</span><span class="vi-inline">Kịch bản song ngữ & tổng duyệt đầy đủ</span></li>
+          <li><span class="en-inline">Cultural consultation for both families</span><span class="vi-inline">Tư vấn văn hóa cho cả hai gia đình</span></li>
+          <li><span class="en-inline">Guest communication & RSVP tracking</span><span class="vi-inline">Liên lạc khách mời & theo dõi RSVP</span></li>
+          <li><span class="en-inline">Rehearsal dinner coordination</span><span class="vi-inline">Điều phối tiệc tổng duyệt</span></li>
+          <li><span class="en-inline">Full day-of team (coordinator + assistant)</span><span class="vi-inline">Đội ngũ trong ngày (điều phối viên + trợ lý)</span></li>
+        </ul>
+      </div>
+      <p class="service-tagline">
+        <span class="en-text">From first consultation to final send-off — every detail, handled with love.</span>
+        <span class="vi-text">Từ buổi tư vấn đầu tiên đến giây phút chia tay — mọi chi tiết, chăm chút bằng tình yêu.</span>
+      </p>
+      <div class="service-hint"><span class="en-inline">Hover to see details ✦</span><span class="vi-inline">Di chuột để xem chi tiết ✦</span></div>
     </div>
+
   </div>
 </section>
 
 <section class="gallery" id="gallery">
   <div class="gallery-header reveal">
-    <div>
-      <p class="section-tag"><span class="en-inline">Our Portfolio</span><span class="vi-inline">Thư Viện Ảnh</span></p>
-      <h2 class="section-title"><span class="en-text">Moments we've <em>treasured</em></span><span class="vi-text">Những khoảnh khắc <em>trân trọng</em></span></h2>
-    </div>
-    <a href="#contact" class="btn-secondary"><span class="en-inline">View Full Gallery</span><span class="vi-inline">Xem Tất Cả</span></a>
+    <p class="section-tag"><span class="en-inline">Our Portfolio</span><span class="vi-inline">Thư Viện Ảnh</span></p>
+    <h2 class="section-title"><span class="en-text">Moments we've <em>treasured</em></span><span class="vi-text">Những khoảnh khắc <em>trân trọng</em></span></h2>
   </div>
   <div class="gallery-grid reveal" style="transition-delay:0.1s">
-    <!-- Slot 6: landscape — spans full left column, 2 rows tall -->
     <div class="gallery-item">
-      <img src="Slot6-GalleryLandscape.JPG" alt="First dance">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot6-GalleryLandscape.JPG" alt="First dance">
       <div class="gallery-overlay"><span><span class="en-inline">First dance</span><span class="vi-inline">Điệu nhảy đầu tiên</span></span></div>
     </div>
-    <!-- Slot 7: portrait — top middle -->
     <div class="gallery-item">
-      <img src="Slot7-GalleryTeaPortrait.JPG" alt="Tea ceremony">
-      <div class="gallery-overlay"><span><span class="en-inline">Tea ceremony</span><span class="vi-inline">Lễ rót trà</span></span></div>
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot7-GalleryTeaPortrait.JPG" alt="Tea ceremony">
+      <div class="gallery-overlay"><span><span class="en-inline">Tea ceremony</span><span class="vi-inline">Lễ Gia Tiên</span></span></div>
     </div>
-    <!-- Slot 10: portrait — top right -->
     <div class="gallery-item">
-      <img src="Slot10-GalleryAoDaiPortrait.JPG" alt="Áo dài">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot10-GalleryAoDaiPortrait.JPG" alt="Áo dài">
       <div class="gallery-overlay"><span><span class="en-inline">Áo dài</span><span class="vi-inline">Áo dài</span></span></div>
     </div>
-    <!-- Slot 8: portrait — bottom middle -->
     <div class="gallery-item">
-      <img src="Slot8-GalleryFlowersPortrait.JPG" alt="Florals">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot8-GalleryFlowersPortrait.JPG" alt="Florals">
       <div class="gallery-overlay"><span><span class="en-inline">Florals</span><span class="vi-inline">Hoa cưới</span></span></div>
     </div>
-    <!-- Slot 9: landscape — bottom right -->
     <div class="gallery-item">
-      <img src="Slot9-GalleryTeaLandscape.JPG" alt="Reception">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot9-GalleryTeaLandscape.JPG" alt="Reception">
       <div class="gallery-overlay"><span><span class="en-inline">The reception</span><span class="vi-inline">Tiệc cưới</span></span></div>
     </div>
   </div>
@@ -512,17 +731,17 @@
   <div class="reveal">
     <p class="section-tag"><span class="en-inline">Our Speciality</span><span class="vi-inline">Đặc Trưng Của Chúng Tôi</span></p>
     <h2 class="section-title"><span class="en-text">Honouring both<br><em>traditions</em></span><span class="vi-text">Tôn vinh cả hai<br><em>truyền thống</em></span></h2>
-    <p class="section-vi"><span class="en-inline">Truyền thống và hiện đại hoà quyện</span><span class="vi-inline">Tradition and modernity in harmony</span></p>
+    <p class="section-vi"><span class="en-inline">Nơi truyền thống gặp gỡ hiện đại</span><span class="vi-inline">Tradition and modernity in harmony</span></p>
     <p class="section-body">
       <span class="en-text">We understand both worlds intimately — because we lived it. Our weddings seamlessly blend Vietnamese customs like the tea ceremony and Áo dài with Western wedding traditions, creating an experience that deeply honours every family member present.</span>
-      <span class="vi-text">Chúng tôi hiểu sâu sắc cả hai thế giới — vì chúng tôi đã sống trong đó. Đám cưới của chúng tôi kết hợp hài hòa phong tục Việt Nam như lễ rót trà và áo dài với truyền thống cưới phương Tây.</span>
+      <span class="vi-text">Chúng tôi hiểu sâu sắc cả hai thế giới — vì chúng tôi đã sống trong đó. Đám cưới của chúng tôi kết hợp hài hòa phong tục Việt Nam như Lễ Gia Tiên và áo dài với truyền thống cưới phương Tây.</span>
     </p>
     <div class="cultural-features">
       <div class="cultural-feat">
         <div class="cultural-feat-icon">🏮</div>
-        <div class="cultural-feat-title"><span class="en-inline">Tea Ceremony</span><span class="vi-inline">Lễ Rót Trà</span></div>
-        <div class="cultural-feat-vi"><span class="en-inline">Lễ Rót Trà</span><span class="vi-inline">Tea Ceremony</span></div>
-        <p class="cultural-feat-desc"><span class="en-text">Guided, bilingual, deeply meaningful</span><span class="vi-text">Được hướng dẫn, song ngữ, sâu sắc ý nghĩa</span></p>
+        <div class="cultural-feat-title"><span class="en-inline">Tea Ceremony</span><span class="vi-inline">Lễ Gia Tiên</span></div>
+        <div class="cultural-feat-vi"><span class="en-inline">Lễ Gia Tiên</span><span class="vi-inline">Tea Ceremony</span></div>
+        <p class="cultural-feat-desc"><span class="en-text">Solemn, meaningful, emotionally complete</span><span class="vi-text">Trang trọng, ý nghĩa và trọn vẹn cảm xúc</span></p>
       </div>
       <div class="cultural-feat">
         <div class="cultural-feat-icon">🌺</div>
@@ -555,30 +774,113 @@
     <div class="testimonial-card reveal">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">
-        <span class="en-text">I've been to many weddings, but this was the first time I truly felt welcomed as a non-Vietnamese guest. The bilingual ceremony was so thoughtful — I understood every beautiful moment.</span>
-        <span class="vi-text">Tôi đã tham dự nhiều đám cưới, nhưng đây là lần đầu tiên tôi thực sự cảm thấy được chào đón. Buổi lễ song ngữ thật chu đáo — tôi hiểu từng khoảnh khắc đẹp đẽ.</span>
+        <span class="en-text">Hau coordinated my wedding back in 2019, and watching her own wedding come to life showed just how far she has grown as a planner and organiser. I've been to many weddings, but this was one of the most heartfelt I've ever attended — one that truly brought family and culture into the heart of the celebration. We had an absolute blast.</span>
+        <span class="vi-text">Hậu là người điều phối đám cưới của tôi từ năm 2019, và được chứng kiến đám cưới của chính cô ấy diễn ra thật ý nghĩa cho thấy cô ấy đã trưởng thành đến nhường nào trong vai trò một người lên kế hoạch và tổ chức. Tôi đã tham dự rất nhiều đám cưới, nhưng đây là một trong những lễ cưới chân thành nhất tôi từng dự — một buổi lễ thật sự đưa gia đình và văn hóa vào trung tâm của ngày trọng đại. Chúng tôi đã có một ngày tuyệt vời.</span>
       </p>
       <div class="testimonial-author">Giang &amp; CJ</div>
-      <div class="testimonial-detail"><span class="en-inline">Wedding guests, 2025</span><span class="vi-inline">Khách mời đám cưới, 2025</span></div>
+      <div class="testimonial-detail"><span class="en-inline">Wedding guests</span><span class="vi-inline">Khách mời đám cưới</span></div>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card reveal" style="transition-delay:0.1s">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">
-        <span class="en-text">Both my families cried with joy. They turned what could have been culturally confusing into the most magical thing I've ever experienced.</span>
-        <span class="vi-text">Cả hai gia đình tôi đều khóc vì hạnh phúc. Họ đã biến một ngày có thể gây nhầm lẫn về mặt văn hóa thành điều kỳ diệu nhất tôi từng trải qua.</span>
+        <span class="en-text">I originally asked Hau to be our bilingual MC as a favour, but she ended up becoming our planner, coordinator, and MC all at once. As an anxious DIY bride, I was terrified my vision wouldn't come together, especially when I arrived at the venue two days before the wedding with décor still unfinished. The moment Hau showed up the day before, she had this incredible ability to make everything feel calm. That's exactly what you need when you're juggling a million details at once. She threw herself into the chaos without hesitation. What really stood out was her eye for detail and her ability to delegate. She assigned tasks to family members, managed vendors, kept everything on track, so that we could actually be present and enjoy our day. She truly made it feel like ours, and we'll be forever grateful.</span>
+        <span class="vi-text">Ban đầu tôi nhờ Hậu làm MC song ngữ cho đám cưới như một sự giúp đỡ, nhưng cuối cùng cô ấy trở thành cả người lên kế hoạch, điều phối và MC. Là một cô dâu DIY hay lo, tôi đã rất sợ rằng tầm nhìn của mình sẽ không thành hình, nhất là khi đến địa điểm hai ngày trước đám cưới mà phần trang trí vẫn còn dang dở. Khi Hậu xuất hiện vào ngày hôm trước, cô ấy có một khả năng đáng kinh ngạc là khiến mọi thứ trở nên bình tĩnh. Đó chính xác là điều bạn cần khi đang phải xoay sở hàng triệu việc cùng lúc. Cô ấy lao vào mớ hỗn độn ấy không một chút do dự. Điều thật sự nổi bật là sự tinh tế trong từng chi tiết và khả năng giao việc của cô ấy. Cô ấy phân công nhiệm vụ cho các thành viên trong gia đình, quản lý nhà cung cấp, giữ mọi thứ đúng tiến độ, để chúng tôi thật sự có thể hiện diện và tận hưởng ngày của mình. Cô ấy đã thật sự khiến đám cưới ấy trở thành của chúng tôi, và chúng tôi sẽ mãi biết ơn.</span>
       </p>
-      <div class="testimonial-author">Linh &amp; Jason</div>
-      <div class="testimonial-detail"><span class="en-inline">Bride, Vietnamese-American wedding, 2024</span><span class="vi-inline">Cô dâu, đám cưới Việt-Mỹ, 2024</span></div>
+      <div class="testimonial-author">Julia N</div>
+      <div class="testimonial-detail"><span class="en-inline">Bride</span><span class="vi-inline">Cô dâu</span></div>
     </div>
     <div class="testimonial-card reveal" style="transition-delay:0.2s">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">
         <span class="en-text">You should absolutely do this for others. That was our exact message to them the night of their wedding. Now I'm so glad they listened.</span>
-        <span class="vi-text">Bạn nhất định nên làm điều này cho người khác. Đó chính xác là điều chúng tôi nói với họ vào đêm đám cưới. Giờ tôi rất vui vì họ đã lắng nghe.</span>
+        <span class="vi-text">Các con nhất định nên làm điều này cho người khác. Đó chính xác là điều chúng tôi nói với họ vào đêm đám cưới. Giờ tôi rất vui vì các con đã lắng nghe.</span>
       </p>
-      <div class="testimonial-author">Mai Huong</div>
-      <div class="testimonial-detail"><span class="en-inline">Family friend</span><span class="vi-inline">Người thân gia đình</span></div>
+      <div class="testimonial-author">Huong L</div>
+      <div class="testimonial-detail"><span class="en-inline">Mother of the bride</span><span class="vi-inline">Mẹ cô dâu</span></div>
     </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="faq-header reveal">
+    <p class="section-tag"><span class="en-inline">Common Questions</span><span class="vi-inline">Câu Hỏi Thường Gặp</span></p>
+    <h2 class="section-title"><span class="en-text">Everything you might <em>wonder</em></span><span class="vi-text">Mọi điều bạn có thể <em>thắc mắc</em></span></h2>
+  </div>
+
+  <div class="faq-list reveal" style="transition-delay:0.1s">
+
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q-primary">
+          <span class="en-text">Do we need to be Vietnamese to work with you?</span>
+          <span class="vi-text">Chúng tôi có cần phải là người Việt Nam không?</span>
+        </span>
+        <span class="faq-q-secondary">
+          <span class="en-inline">Chúng tôi có cần phải là người Việt Nam không?</span>
+          <span class="vi-inline">Do we need to be Vietnamese to work with you?</span>
+        </span>
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="en-text">Not at all! We specialise in weddings that blend Vietnamese and Western traditions, but we warmly welcome any couple who wants to honour Vietnamese culture — whether that's one partner, both, or neither. If you love the idea of a tea ceremony, bilingual ceremony, or simply want someone who understands both worlds, we're your team.</span>
+        <span class="vi-text">Hoàn toàn không! Chúng tôi chuyên tổ chức các đám cưới kết hợp văn hóa Việt và phương Tây, nhưng luôn chào đón bất kỳ cặp đôi nào muốn tôn vinh văn hóa Việt Nam — dù là một bên, cả hai, hay không bên nào. Nếu bạn yêu thích Lễ Gia Tiên, lễ cưới song ngữ, hoặc đơn giản là muốn người hiểu cả hai thế giới đồng hành, chúng tôi chính là lựa chọn dành cho bạn.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q-primary">
+          <span class="en-text">Do you travel outside of Chicago?</span>
+          <span class="vi-text">Bạn có làm việc ngoài Chicago không?</span>
+        </span>
+        <span class="faq-q-secondary">
+          <span class="en-inline">Bạn có làm việc ngoài Chicago không?</span>
+          <span class="vi-inline">Do you travel outside of Chicago?</span>
+        </span>
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="en-text">Yes! While we're based in Chicago, we're available for weddings across the US and internationally — including Vietnam. Travel fees may apply depending on location. Just let us know where your big day is happening and we'll figure it out together.</span>
+        <span class="vi-text">Có! Mặc dù đặt tại Chicago, chúng tôi có thể phục vụ đám cưới trên toàn nước Mỹ và quốc tế — kể cả Việt Nam. Phí di chuyển có thể phát sinh tùy theo địa điểm. Hãy cho chúng tôi biết nơi tổ chức đám cưới và chúng tôi sẽ cùng bạn sắp xếp.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q-primary">
+          <span class="en-text">What does tea ceremony coordination include?</span>
+          <span class="vi-text">Điều phối Lễ Gia Tiên bao gồm những gì?</span>
+        </span>
+        <span class="faq-q-secondary">
+          <span class="en-inline">Điều phối Lễ Gia Tiên bao gồm những gì?</span>
+          <span class="vi-inline">What does tea ceremony coordination include?</span>
+        </span>
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="en-text">We guide the full ceremony in both languages — explaining each ritual to guests as it happens, coordinating the order of family members, managing timing, and making sure everyone feels included and honored. We can also advise on traditional elements like gifts, attire, and the correct order of proceedings for both Vietnamese and Western customs.</span>
+        <span class="vi-text">Chúng tôi dẫn dắt toàn bộ lễ bằng hai ngôn ngữ — giải thích từng nghi lễ cho khách mời theo thời gian thực, sắp xếp thứ tự các thành viên gia đình, quản lý thời gian, và đảm bảo mọi người đều cảm thấy được tôn trọng và gắn kết. Chúng tôi cũng có thể tư vấn về các yếu tố truyền thống như lễ vật, trang phục và trình tự nghi lễ phù hợp với cả hai phong tục.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="faq-q-primary">
+          <span class="en-text">Do you offer a free consultation?</span>
+          <span class="vi-text">Bạn có tư vấn miễn phí không?</span>
+        </span>
+        <span class="faq-q-secondary">
+          <span class="en-inline">Bạn có tư vấn miễn phí không?</span>
+          <span class="vi-inline">Do you offer a free consultation?</span>
+        </span>
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="en-text">Yes — always. We offer a complimentary 30-minute call to hear your story, answer your questions, and see if we're the right fit for each other. No pressure, no commitment. Just a conversation over coffee (virtually or in person in Chicago).</span>
+        <span class="vi-text">Có — luôn luôn. Chúng tôi cung cấp buổi tư vấn miễn phí 30 phút để lắng nghe câu chuyện của bạn, giải đáp thắc mắc và xem liệu chúng ta có phù hợp với nhau không. Không áp lực, không ràng buộc. Chỉ là một cuộc trò chuyện nhẹ nhàng — trực tuyến hoặc gặp trực tiếp tại Chicago.</span>
+      </div>
+    </details>
+
   </div>
 </section>
 
@@ -589,7 +891,7 @@
       <span class="en-text">Let's plan your<br><em>perfect day</em></span>
       <span class="vi-text">Hãy lên kế hoạch cho<br><em>ngày trọng đại của bạn</em></span>
     </h2>
-    <p class="section-vi"><span class="en-inline">Ngày hoàn hảo của bạn bắt đầu từ đây</span><span class="vi-inline">Your perfect day starts here</span></p>
+    <p class="section-vi"><span class="en-inline">Hành trình của bạn bắt đầu từ đây</span><span class="vi-inline">Your perfect day starts here</span></p>
     <p class="section-body">
       <span class="en-text">We'd love to hear your story. Fill in the form and we'll be in touch within 48 hours to arrange a complimentary consultation — in English, Vietnamese, or both.</span>
       <span class="vi-text">Chúng tôi rất muốn nghe câu chuyện của bạn. Điền vào mẫu và chúng tôi sẽ liên hệ trong vòng 48 giờ để sắp xếp buổi tư vấn miễn phí — bằng tiếng Anh, tiếng Việt hoặc cả hai.</span>
@@ -600,7 +902,7 @@
         <div>
           <div class="contact-detail-title"><span class="en-inline">Email Us</span><span class="vi-inline">Email</span></div>
           <div class="contact-detail-vi"><span class="en-inline">Gửi email cho chúng tôi</span><span class="vi-inline">Send us an email</span></div>
-          <div class="contact-detail-text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa2afa6a6a58aa2a2bdafaeaea3a4adb9e4a9a5a7">[email&#160;protected]</a></div>
+          <div class="contact-detail-text">hello@hhweddings.com</div>
         </div>
       </div>
       <div class="contact-detail">
@@ -609,8 +911,8 @@
           <div class="contact-detail-title"><span class="en-inline">Location</span><span class="vi-inline">Địa Điểm</span></div>
           <div class="contact-detail-vi"><span class="en-inline">Khu vực phục vụ</span><span class="vi-inline">Service area</span></div>
           <div class="contact-detail-text">
-            <span class="en-inline">Chicago, IL · Ho Chi Minh City, Vietnam · Available nationally</span>
-            <span class="vi-inline">Chicago, IL · Thành phố Hồ Chí Minh · Phục vụ toàn quốc</span>
+            <span class="en-inline">Based in Chicago, IL · Ho Chi Minh City, Vietnam · Available nationwide</span>
+            <span class="vi-inline">Trụ sở tại Chicago, IL · Thành phố Hồ Chí Minh · Phục vụ toàn quốc</span>
           </div>
         </div>
       </div>
@@ -683,12 +985,12 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 H&amp;H Weddings. <span class="en-inline">All rights reserved.</span><span class="vi-inline">Bảo lưu mọi quyền.</span></span>
+    <span>© 2026 H&amp;H Weddings. <span class="en-inline">All rights reserved.</span><span class="vi-inline">Bảo lưu mọi quyền.</span></span>
     <span><span class="en-inline">Made with love, for love.</span><span class="vi-inline">Được tạo ra với tình yêu, vì tình yêu.</span></span>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function setLang(lang) {
     if (lang === 'vi') {
       document.body.classList.add('vi');
@@ -707,9 +1009,7 @@
     btn.style.background = '#9a7a3f';
   }
 
-  // Scroll reveal — safe version that never leaves elements invisible
   var reveals = document.querySelectorAll('.reveal');
-
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -721,7 +1021,6 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     reveals.forEach(function(el) {
-      // If already in viewport on load, show immediately
       var rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) {
         el.classList.add('visible');
@@ -730,7 +1029,6 @@
       }
     });
   } else {
-    // Fallback: just show everything if IntersectionObserver not supported
     reveals.forEach(function(el) { el.classList.add('visible'); });
   }
 </script>
