@@ -101,14 +101,14 @@
       color: var(--charcoal);
     }
     .nav-logo-mark {
-      height: 44px;
+      height: 60px;
       width: auto;
       flex-shrink: 0;
       display: block;
     }
     .nav-logo-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 300;
       letter-spacing: 0.18em;
       color: var(--charcoal);
@@ -279,7 +279,7 @@
     body.vi .vi-inline { display: inline; }
 
     .hero {
-      min-height: 100vh; padding-top: 100px;
+      min-height: 100vh; padding-top: 130px;
       display: grid; grid-template-columns: 1fr 1fr;
     }
     .hero-left {
@@ -340,6 +340,108 @@
       font-family: 'Cormorant Garamond', serif; font-size: 22px;
     }
     .divider-line { flex: 1; max-width: 200px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-light), transparent); }
+
+    /* ETYMOLOGY — the "Tụ" definition section */
+    .etymology {
+      background: var(--cream);
+      padding: 100px 80px;
+    }
+    .etymology-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .etymology-card {
+      padding: 56px 48px;
+      background: var(--warm-white);
+      border: 1px solid rgba(201,169,110,0.25);
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .etymology-card::before,
+    .etymology-card::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      top: 50%;
+    }
+    .etymology-card::before { left: -20px; }
+    .etymology-card::after { right: -20px; }
+    .etymology-word {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 8vw, 96px);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .etymology-phonetic {
+      font-family: 'Noto Serif', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+    .etymology-pos {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .etymology-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold-light);
+      margin: 0 auto 24px;
+    }
+    .etymology-definitions {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-style: italic;
+      color: var(--rose);
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .etymology-definitions span {
+      display: inline-block;
+      padding: 0 6px;
+    }
+    .etymology-tagline {
+      font-size: 15px;
+      color: var(--charcoal);
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .etymology-tagline-vi {
+      font-family: 'Noto Serif', serif;
+      font-style: italic;
+      color: var(--gold-dark);
+      display: block;
+      margin-top: 4px;
+    }
+    .etymology-body {
+      text-align: left;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #6b5a52;
+    }
+    .etymology-body p {
+      margin-bottom: 22px;
+    }
+    .etymology-body p:last-child {
+      margin-bottom: 0;
+    }
+    .etymology-body em {
+      font-style: italic;
+      color: var(--charcoal);
+    }
 
     .story { padding: 80px 80px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .story-images { position: relative; height: 560px; }
@@ -851,7 +953,7 @@
       gap: 14px;
     }
     .footer-logo-mark {
-      height: 56px;
+      height: 76px;
       width: auto;
       flex-shrink: 0;
       display: block;
@@ -860,7 +962,7 @@
     }
     .footer-logo-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: 32px;
       font-weight: 300;
       letter-spacing: 0.18em;
       color: var(--cream);
@@ -903,7 +1005,9 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-toggle { display: flex; }
-      .story, .services, .gallery, .process, .testimonials, .faq, .contact, footer { padding-left: 24px; padding-right: 24px; }
+      .story, .services, .gallery, .process, .testimonials, .faq, .contact, .etymology, footer { padding-left: 24px; padding-right: 24px; }
+      .etymology-card { padding: 40px 24px; }
+      .etymology-card::before, .etymology-card::after { display: none; }
     }
     @media (max-width: 560px) {
       .gallery-grid { column-count: 1; }
@@ -942,7 +1046,7 @@
 <nav>
   <a href="#" class="nav-logo">
     <img class="nav-logo-mark" src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/TuPlannersLogo.png" alt="Tu Planners logo">
-    <span class="nav-logo-text">Tu Planners</span>
+    <span class="nav-logo-text">Planners</span>
   </a>
   <ul class="nav-links">
     <li><a href="#story"><span class="en-inline">Our Story</span><span class="vi-inline">Câu Chuyện</span></a></li>
@@ -1035,6 +1139,43 @@
 
 <div class="divider"><div class="divider-line"></div>✦<div class="divider-line"></div></div>
 
+<section class="etymology" id="etymology">
+  <div class="etymology-inner reveal">
+    <div class="etymology-card">
+      <div class="etymology-word">Tụ</div>
+      <div class="etymology-phonetic">/tou/</div>
+      <div class="etymology-pos"><span class="en-inline">verb</span><span class="vi-inline">động từ</span></div>
+      <div class="etymology-divider"></div>
+      <p class="etymology-definitions">
+        <span><span class="en-inline">To gather</span><span class="vi-inline">Tụ họp</span></span><span style="color:var(--gold-light)">·</span><span><span class="en-inline">To assemble</span><span class="vi-inline">Quy tụ</span></span><span style="color:var(--gold-light)">·</span><span><span class="en-inline">To converge</span><span class="vi-inline">Hội tụ</span></span>
+      </p>
+      <p class="etymology-tagline">
+        <span class="en-text">For you, for all, to gather.</span>
+        <span class="vi-text">Cho bạn, cho tất cả, để tụ họp.</span>
+        <span class="etymology-tagline-vi">
+          <span class="en-inline">Nơi ta cùng về</span>
+          <span class="vi-inline">The place we gather</span>
+        </span>
+      </p>
+    </div>
+
+    <div class="etymology-body">
+      <p>
+        <span class="en-text"><em>Tụ</em> crafts weddings across Chicago and beyond. We're here to highlight your story, your vision, and the coming together of the people you love most, so your wedding day feels like coming home, a place and time that holds your fondest memories.</span>
+        <span class="vi-text"><em>Tụ</em> tổ chức các đám cưới tại Chicago và xa hơn nữa. Chúng tôi ở đây để tôn vinh câu chuyện của bạn, tầm nhìn của bạn và sự sum vầy của những người bạn yêu thương nhất, để ngày cưới của bạn cảm giác như trở về nhà, một nơi và một khoảnh khắc lưu giữ những kỷ niệm đẹp nhất.</span>
+      </p>
+      <p>
+        <span class="en-text">At <em>Tụ</em>, whether you have a clear vision or are just anxiously getting started, we've got every moving piece covered to keep you calm, assured, and fully in the moment on your special day.</span>
+        <span class="vi-text">Tại <em>Tụ</em>, dù bạn đã có một tầm nhìn rõ ràng hay chỉ vừa hồi hộp bắt đầu, chúng tôi sẽ lo từng chi tiết để bạn được bình tĩnh, an tâm và trọn vẹn từng khoảnh khắc trong ngày trọng đại.</span>
+      </p>
+      <p>
+        <span class="en-text">With our Vietnamese American background, we also specialize in bilingual Vietnamese and English ceremonies, so no one is lost in translation, and everyone belongs.</span>
+        <span class="vi-text">Với gốc gác Việt - Mỹ của mình, chúng tôi cũng chuyên về các buổi lễ song ngữ Việt - Anh, để không ai bị lạc trong ngôn ngữ, và mọi người đều thuộc về.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="story" id="story">
   <div class="story-images reveal">
     <div class="story-img-main">
@@ -1053,18 +1194,22 @@
       <span class="en-text">Born from our own<br><em>wedding day</em></span>
       <span class="vi-text">Ra đời từ ngày<br><em>đám cưới của chúng tôi</em></span>
     </h2>
-    <p class="section-vi"><span class="en-inline">Khởi nguồn từ chính đám cưới của chúng tôi</span><span class="vi-inline">Born from true love</span></p>
+    <p class="section-vi"><span class="en-inline">Duyên khởi từ chính đám cưới của founder</span><span class="vi-inline">Born from the founders' own wedding</span></p>
     <p class="section-body">
-      <span class="en-text">When we planned our own Vietnamese and English wedding, we discovered something rare: a ceremony that moved guests from both cultures to tears, not despite its dual heritage but because of it. Every tea ceremony ritual, every bilingual vow, every carefully chosen detail was woven together with intention.</span>
-      <span class="vi-text">Khi chúng tôi lên kế hoạch cho đám cưới Việt - Anh của mình, chúng tôi đã khám phá ra điều gì đó hiếm có: một buổi lễ khiến khách từ cả hai nền văn hóa đều xúc động đến rơi nước mắt, không phải mặc dù sự giao thoa văn hóa, mà chính vì nó. Mỗi nghi lễ gia tiên, mỗi lời thề song ngữ, mỗi chi tiết được chọn lựa kỹ càng đều được kết hợp một cách có chủ đích.</span>
+      <span class="en-text">When we planned our own Vietnamese and English wedding, we discovered something rare: a ceremony that moved guests from both cultures to tears, not despite its dual heritage, but because of it. From our vibrant tea ceremony to our heartfelt vows to our warm reception, every detail was woven together with intention.</span>
+      <span class="vi-text">Khi chúng tôi lên kế hoạch cho đám cưới Việt - Anh của mình, chúng tôi đã khám phá ra điều gì đó hiếm có: một buổi lễ khiến khách từ cả hai nền văn hóa đều xúc động đến rơi nước mắt, không phải mặc dù sự giao thoa văn hóa, mà chính vì nó. Từ lễ gia tiên rực rỡ, đến những lời thề chân thành, đến tiệc cưới ấm áp, từng chi tiết đều được kết nối với chủ đích.</span>
     </p>
     <p class="section-body">
-      <span class="en-text">Guests kept saying: "You should do this for others." So here we are. Tu Planners, serving Chicago's Vietnamese and multicultural communities, built on the belief that your wedding should reflect every part of who you are, in both languages, for every person you love.</span>
-      <span class="vi-text">Khách mời liên tục nói: "Các bạn nên làm điều này cho người khác." Và đây chúng tôi. Tu Planners, được xây dựng trên niềm tin rằng đám cưới của bạn nên phản ánh con người bạn, bằng cả hai ngôn ngữ.</span>
+      <span class="en-text">But looking back, it was the gathering itself, every person dear to our hearts all in one place, that made our day truly unforgettable. That feeling gave us our name. <em>Tụ</em>, to gather, to accumulate, to come together, as our love was assembled and multiplied that day.</span>
+      <span class="vi-text">Nhưng khi nhìn lại, chính sự sum vầy, mỗi người thân thương nhất đều có mặt cùng một nơi, đã làm cho ngày đó thật sự khó quên. Cảm giác ấy đã đặt tên cho chúng tôi. <em>Tụ</em>, để tụ họp, để gom góp, để cùng đến với nhau, như tình yêu của chúng tôi được hội tụ và nhân lên gấp bội trong ngày hôm ấy.</span>
+    </p>
+    <p class="section-body">
+      <span class="en-text">By the end of the night, guests kept saying: "You should do this for others." So here we are, with <em>Tụ</em>, serving couples of all backgrounds across Chicago and beyond, built on the belief that your wedding should reflect who you are, and be amplified by every person who shows up to celebrate it with you.</span>
+      <span class="vi-text">Đến cuối đêm hôm ấy, khách mời cứ nói: "Các bạn nên làm điều này cho người khác." Và đây chúng tôi, với <em>Tụ</em>, phục vụ các cặp đôi với mọi xuất thân, khắp Chicago và xa hơn nữa, được xây dựng trên niềm tin rằng đám cưới của bạn nên phản ánh con người bạn, và được nhân lên bởi mỗi người có mặt cùng bạn ăn mừng.</span>
     </p>
     <div class="story-signature">
-      <span class="story-signature-names">Hau Ngo &amp; Huan Nguyen</span>
-      <span class="story-signature-role"><span class="en-inline">Our Founders</span><span class="vi-inline">Nhà Sáng Lập</span></span>
+      <span class="story-signature-names">Hậu &amp; Huấn</span>
+      <span class="story-signature-role"><span class="en-inline">Founders</span><span class="vi-inline">Nhà Sáng Lập</span></span>
     </div>
   </div>
 </section>
@@ -1564,7 +1709,7 @@
     <div>
       <div class="footer-logo">
         <img class="footer-logo-mark" src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/TuPlannersLogo.png" alt="Tu Planners logo">
-        <span class="footer-logo-text">Tu Planners</span>
+        <span class="footer-logo-text">Planners</span>
       </div>
       <div class="footer-tagline">
         <span class="en-inline">Two cultures · One love · Your perfect day</span>
