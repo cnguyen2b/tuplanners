@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vietnamese-English Wedding Planner Chicago | H&H Weddings</title>
+  <title>Vietnamese-English Wedding Planner Chicago | Tu Planners</title>
   <meta name="description" content="Bilingual Vietnamese & English wedding planning in Chicago. Specialists in tea ceremonies, Áo Dài coordination, and weddings that honour both cultures." />
   <script type="application/ld+json">
   {
@@ -94,10 +94,26 @@
       backdrop-filter: blur(8px);
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300;
-      letter-spacing: 0.15em; color: var(--charcoal); text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--charcoal);
     }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo-mark {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      color: var(--charcoal);
+      text-transform: uppercase;
+      line-height: 1;
+    }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
       font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
@@ -720,6 +736,39 @@
     .testimonials-header { text-align: center; margin-bottom: 64px; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .testimonial-card { background: var(--warm-white); padding: 40px 32px; }
+    .testimonial-card.hidden {
+      display: none;
+    }
+    body.testimonials-expanded .testimonial-card.hidden {
+      display: block;
+      animation: fadeUp 0.6s ease both;
+      grid-column: 2;
+      max-width: 100%;
+    }
+    .testimonials-more {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .testimonials-more-btn {
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--charcoal);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(44,36,32,0.25);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .testimonials-more-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+    }
+    body.testimonials-expanded .testimonials-more {
+      display: none;
+    }
     .testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 72px; line-height: 0.5; color: var(--gold-light); margin-bottom: 20px; }
     .testimonial-text { font-size: 14px; font-weight: 300; line-height: 1.9; color: #6b5a52; font-style: italic; margin-bottom: 24px; }
     .testimonial-author { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); }
@@ -745,12 +794,27 @@
 
     footer { background: var(--charcoal); padding: 60px 80px 40px; color: rgba(253,246,238,0.6); }
     .footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,169,110,0.2); }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; letter-spacing: 0.15em; color: var(--cream); }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-logo-mark {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .footer-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      color: var(--cream);
+      text-transform: uppercase;
+      line-height: 1;
+    }
     .footer-tagline { font-family: 'Noto Serif', serif; font-size: 13px; font-style: italic; color: var(--gold-light); margin-top: 4px; }
-    .footer-social { display: flex; gap: 16px; }
-    .social-link { width: 40px; height: 40px; border: 1px solid rgba(201,169,110,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; transition: all 0.3s; }
-    .social-link:hover { border-color: var(--gold); background: rgba(201,169,110,0.1); }
     .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; font-weight: 300; }
 
     @media (max-width: 1024px) {
@@ -822,7 +886,14 @@
 </div>
 
 <nav>
-  <a href="#" class="nav-logo">H<span>&</span>H <span style="font-size:20px;letter-spacing:0.08em">Weddings</span></a>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <text x="50" y="62" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="42" font-weight="400" fill="currentColor" letter-spacing="-1">Tu</text>
+      <circle cx="78" cy="78" r="4.5" fill="currentColor"/>
+    </svg>
+    <span class="nav-logo-text">Tu Planners</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#story"><span class="en-inline">Our Story</span><span class="vi-inline">Câu Chuyện</span></a></li>
     <li><a href="#services"><span class="en-inline">Services</span><span class="vi-inline">Dịch Vụ</span></a></li>
@@ -938,8 +1009,8 @@
       <span class="vi-text">Khi chúng tôi lên kế hoạch cho đám cưới Việt - Anh của mình, chúng tôi đã khám phá ra điều gì đó hiếm có: một buổi lễ khiến khách từ cả hai nền văn hóa đều xúc động đến rơi nước mắt, không phải mặc dù sự giao thoa văn hóa, mà chính vì nó. Mỗi nghi lễ gia tiên, mỗi lời thề song ngữ, mỗi chi tiết được chọn lựa kỹ càng đều được kết hợp một cách có chủ đích.</span>
     </p>
     <p class="section-body">
-      <span class="en-text">Guests kept saying: "You should do this for others." So here we are. H&H Weddings, serving Chicago's Vietnamese and multicultural communities, built on the belief that your wedding should reflect every part of who you are, in both languages, for every person you love.</span>
-      <span class="vi-text">Khách mời liên tục nói: "Các bạn nên làm điều này cho người khác." Và đây chúng tôi. H&H Weddings, được xây dựng trên niềm tin rằng đám cưới của bạn nên phản ánh con người bạn, bằng cả hai ngôn ngữ.</span>
+      <span class="en-text">Guests kept saying: "You should do this for others." So here we are. Tu Planners, serving Chicago's Vietnamese and multicultural communities, built on the belief that your wedding should reflect every part of who you are, in both languages, for every person you love.</span>
+      <span class="vi-text">Khách mời liên tục nói: "Các bạn nên làm điều này cho người khác." Và đây chúng tôi. Tu Planners, được xây dựng trên niềm tin rằng đám cưới của bạn nên phản ánh con người bạn, bằng cả hai ngôn ngữ.</span>
     </p>
     <div class="story-signature">H &amp; H</div>
   </div>
@@ -1254,12 +1325,27 @@
     <div class="testimonial-card reveal" style="transition-delay:0.2s">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">
+        <span class="en-text">Hau was our MC for our beach wedding, and she truly bridged the gap between our Vietnamese and American families. Her clever and heartfelt MCing style made the ceremony feel warm and full of laughter. My in-laws still reminisce about our wedding and her MCing to this day. I also admire her strong work ethic, which I absolutely needed for my special day. I appreciate that she kept the scripts on schedule, ensuring our ceremony ran smoothly. Definitely the type A that I need for my special day!</span>
+        <span class="vi-text">Hậu là MC trong đám cưới biển của chúng tôi, và cô ấy thật sự kết nối hai gia đình Việt và Mỹ của chúng tôi. Phong cách dẫn dắt thông minh và đầy cảm xúc của Hậu khiến buổi lễ trở nên ấm áp và tràn ngập tiếng cười. Đến tận bây giờ, ba mẹ chồng tôi vẫn nhắc lại về đám cưới và phần MC của cô ấy. Tôi cũng rất ngưỡng mộ tinh thần làm việc của Hậu, điều mà tôi rất cần trong ngày trọng đại của mình. Tôi trân trọng cách cô ấy bám sát kịch bản đúng tiến độ, đảm bảo buổi lễ diễn ra suôn sẻ. Đúng kiểu người tỉ mỉ mà tôi cần cho ngày của mình!</span>
+      </p>
+      <div class="testimonial-author">Vy N</div>
+      <div class="testimonial-detail"><span class="en-inline">Bride</span><span class="vi-inline">Cô dâu</span></div>
+    </div>
+    <div class="testimonial-card hidden">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">
         <span class="en-text">You should absolutely do this for others. That was our exact message to them the night of their wedding. Now I'm so glad they listened.</span>
         <span class="vi-text">Các con nhất định nên làm điều này cho người khác. Đó chính xác là điều chúng tôi nói với họ vào đêm đám cưới. Giờ tôi rất vui vì các con đã lắng nghe.</span>
       </p>
       <div class="testimonial-author">Huong L</div>
       <div class="testimonial-detail"><span class="en-inline">Mother of the bride</span><span class="vi-inline">Mẹ cô dâu</span></div>
     </div>
+  </div>
+  <div class="testimonials-more">
+    <button class="testimonials-more-btn" onclick="expandTestimonials()">
+      <span class="en-inline">Read more testimonials ✦</span>
+      <span class="vi-inline">Xem thêm lời chia sẻ ✦</span>
+    </button>
   </div>
 </section>
 
@@ -1364,26 +1450,15 @@
         <div>
           <div class="contact-detail-title"><span class="en-inline">Email Us</span><span class="vi-inline">Email</span></div>
           <div class="contact-detail-vi"><span class="en-inline">Gửi email cho chúng tôi</span><span class="vi-inline">Send us an email</span></div>
-          <div class="contact-detail-text">hello@hhweddings.com</div>
+          <div class="contact-detail-text"><a href="mailto:ngovuthuanhau@gmail.com" style="color: inherit; text-decoration: none;">ngovuthuanhau@gmail.com</a></div>
         </div>
       </div>
       <div class="contact-detail">
-        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-icon">📞</div>
         <div>
-          <div class="contact-detail-title"><span class="en-inline">Location</span><span class="vi-inline">Địa Điểm</span></div>
-          <div class="contact-detail-vi"><span class="en-inline">Khu vực phục vụ</span><span class="vi-inline">Service area</span></div>
-          <div class="contact-detail-text">
-            <span class="en-inline">Based in Chicago, IL · Ho Chi Minh City, Vietnam · Available nationwide</span>
-            <span class="vi-inline">Trụ sở tại Chicago, IL · Thành phố Hồ Chí Minh · Phục vụ toàn quốc</span>
-          </div>
-        </div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">📱</div>
-        <div>
-          <div class="contact-detail-title"><span class="en-inline">Follow Along</span><span class="vi-inline">Theo Dõi Chúng Tôi</span></div>
-          <div class="contact-detail-vi"><span class="en-inline">Theo dõi chúng tôi</span><span class="vi-inline">Follow us</span></div>
-          <div class="contact-detail-text">@hhweddings</div>
+          <div class="contact-detail-title"><span class="en-inline">Call or Text</span><span class="vi-inline">Gọi hoặc Nhắn tin</span></div>
+          <div class="contact-detail-vi"><span class="en-inline">Gọi hoặc nhắn tin cho chúng tôi</span><span class="vi-inline">Call or text us</span></div>
+          <div class="contact-detail-text"><a href="tel:+18728011299" style="color: inherit; text-decoration: none;">(872) 801-1299</a></div>
         </div>
       </div>
     </div>
@@ -1392,28 +1467,28 @@
     <div class="form-row">
       <div class="form-group">
         <label class="form-label"><span class="en-inline">Your name</span><span class="vi-inline">Họ và tên</span></label>
-        <input type="text" class="form-input" placeholder="e.g. Christian & Julia">
+        <input type="text" class="form-input" id="formName" placeholder="e.g. Christian & Julia">
       </div>
       <div class="form-group">
         <label class="form-label"><span class="en-inline">Email address</span><span class="vi-inline">Địa chỉ email</span></label>
-        <input type="email" class="form-input" placeholder="your@email.com">
+        <input type="email" class="form-input" id="formEmail" placeholder="your@email.com">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
         <label class="form-label"><span class="en-inline">Wedding date</span><span class="vi-inline">Ngày cưới</span></label>
-        <input type="date" class="form-input">
+        <input type="date" class="form-input" id="formDate">
       </div>
       <div class="form-group">
         <label class="form-label"><span class="en-inline">Guest count</span><span class="vi-inline">Số khách mời</span></label>
-        <select class="form-select">
+        <select class="form-select" id="formGuests">
           <option>Under 50</option><option>50–100</option><option>100–200</option><option>200+</option>
         </select>
       </div>
     </div>
     <div class="form-group">
       <label class="form-label"><span class="en-inline">Service interest</span><span class="vi-inline">Dịch vụ quan tâm</span></label>
-      <select class="form-select">
+      <select class="form-select" id="formService">
         <option>Full Planning / Lên kế hoạch toàn bộ</option>
         <option>Partial Planning / Lên kế hoạch một phần</option>
         <option>Day Coordination / Điều phối trong ngày</option>
@@ -1422,7 +1497,7 @@
     </div>
     <div class="form-group">
       <label class="form-label"><span class="en-inline">Tell us your story</span><span class="vi-inline">Kể cho chúng tôi nghe câu chuyện của bạn</span></label>
-      <textarea class="form-textarea" placeholder="How did you meet? What's your cultural background? Any special traditions you'd love to include?"></textarea>
+      <textarea class="form-textarea" id="formStory" placeholder="How did you meet? What's your cultural background? Any special traditions you'd love to include?"></textarea>
     </div>
     <button class="form-submit" onclick="handleSubmit(this)">
       <span class="en-inline">Send Your Enquiry ✦</span>
@@ -1434,20 +1509,22 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo">H<span>&</span>H <span style="font-size:24px;letter-spacing:0.08em">Weddings</span></div>
+      <div class="footer-logo">
+        <svg class="footer-logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <text x="50" y="62" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="42" font-weight="400" fill="currentColor" letter-spacing="-1">Tu</text>
+          <circle cx="78" cy="78" r="4.5" fill="currentColor"/>
+        </svg>
+        <span class="footer-logo-text">Tu Planners</span>
+      </div>
       <div class="footer-tagline">
         <span class="en-inline">Two cultures · One love · Your perfect day</span>
         <span class="vi-inline">Hai nền văn hóa · Một tình yêu · Ngày hoàn hảo của bạn</span>
       </div>
     </div>
-    <div class="footer-social">
-      <a href="#" class="social-link" title="Instagram">📷</a>
-      <a href="#" class="social-link" title="Facebook">📘</a>
-      <a href="#" class="social-link" title="TikTok">🎵</a>
-    </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 H&amp;H Weddings. <span class="en-inline">All rights reserved.</span><span class="vi-inline">Bảo lưu mọi quyền.</span></span>
+    <span>© 2026 Tu Planners. <span class="en-inline">All rights reserved.</span><span class="vi-inline">Bảo lưu mọi quyền.</span></span>
     <span><span class="en-inline">Made with love, for love.</span><span class="vi-inline">Được tạo ra với tình yêu, vì tình yêu.</span></span>
   </div>
 </footer>
@@ -1561,9 +1638,45 @@
     else if (e.key === 'ArrowRight') lightboxNext();
   });
 
+  function expandTestimonials() {
+    document.body.classList.add('testimonials-expanded');
+  }
+
   function handleSubmit(btn) {
+    var name = (document.getElementById('formName') || {}).value || '';
+    var email = (document.getElementById('formEmail') || {}).value || '';
+    var date = (document.getElementById('formDate') || {}).value || '';
+    var guests = (document.getElementById('formGuests') || {}).value || '';
+    var service = (document.getElementById('formService') || {}).value || '';
+    var story = (document.getElementById('formStory') || {}).value || '';
+
     var isVi = document.body.classList.contains('vi');
-    btn.textContent = isVi ? 'Đã gửi! Chúng tôi sẽ liên hệ sớm ✦' : "Enquiry sent! We'll be in touch soon ✦";
+
+    var subject = isVi
+      ? 'Yêu cầu đám cưới mới từ ' + (name || 'Tu Planners')
+      : 'New wedding enquiry from ' + (name || 'Tu Planners website');
+
+    var bodyLines = [
+      'Name: ' + name,
+      'Email: ' + email,
+      'Wedding date: ' + date,
+      'Guest count: ' + guests,
+      'Service interest: ' + service,
+      '',
+      'Story:',
+      story
+    ];
+    var body = bodyLines.join('\n');
+
+    var mailto = 'mailto:ngovuthuanhau@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+
+    btn.textContent = isVi
+      ? 'Đang mở ứng dụng email... ✦'
+      : 'Opening your email app... ✦';
     btn.style.background = '#9a7a3f';
   }
 
