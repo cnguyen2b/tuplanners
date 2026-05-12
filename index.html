@@ -761,8 +761,6 @@
     body.testimonials-expanded .testimonial-card.hidden {
       display: block;
       animation: fadeUp 0.6s ease both;
-      grid-column: 2;
-      max-width: 100%;
     }
     .testimonials-more {
       text-align: center;
@@ -879,8 +877,7 @@
       .story, .contact { grid-template-columns: 1fr; gap: 48px; }
       .story-images { height: 440px; }
       .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
-      body.testimonials-expanded .testimonial-card.hidden { grid-column: auto; }
-      .form-row { grid-template-columns: 1fr; gap: 20px; }
+      .form-row { grid-template-columns: 1fr !important; gap: 20px !important; }
       .process-steps { grid-template-columns: 1fr; gap: 40px; }
       .process-line {
         top: 0;
