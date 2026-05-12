@@ -537,21 +537,92 @@
     .gallery-header { margin-bottom: 48px; }
     .gallery-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 320px 320px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 280px;
+      grid-auto-flow: dense;
       gap: 6px;
     }
-    .gallery-item { overflow: hidden; position: relative; cursor: pointer; }
-    .gallery-item:nth-child(1) { grid-row: span 2; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .gallery-item { overflow: hidden; position: relative; cursor: pointer; background: var(--blush); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; display: block; }
     .gallery-item:hover img { transform: scale(1.06); }
     .gallery-overlay {
       position: absolute; inset: 0; background: rgba(44,36,32,0);
       transition: background 0.3s; display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
     }
-    .gallery-item:hover .gallery-overlay { background: rgba(44,36,32,0.25); }
-    .gallery-overlay span { color: white; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; opacity: 0; transform: translateY(8px); transition: all 0.3s; }
+    .gallery-item:hover .gallery-overlay { background: rgba(44,36,32,0.18); }
+    .gallery-overlay span { color: white; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; opacity: 0; transform: translateY(8px); transition: all 0.3s; letter-spacing: 0.05em; }
     .gallery-item:hover .gallery-overlay span { opacity: 1; transform: translateY(0); }
+    /* Feature spans for editorial rhythm */
+    .gallery-item.feature-hero { grid-column: span 2; grid-row: span 2; }
+    .gallery-item.feature-wide { grid-column: span 2; }
+    .gallery-item.feature-tall { grid-row: span 2; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,16,14,0.96);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+      padding: 60px 80px;
+    }
+    body.lightbox-open .lightbox {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s linear 0s;
+    }
+    body.lightbox-open { overflow: hidden; }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 12px 60px rgba(0,0,0,0.5);
+      transition: opacity 0.25s ease;
+    }
+    .lightbox-img.loading { opacity: 0.3; }
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: transparent;
+      border: 1px solid rgba(232,213,163,0.4);
+      color: var(--gold-light);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(232,213,163,0.15);
+      border-color: var(--gold);
+      color: var(--warm-white);
+    }
+    .lightbox-close { top: 32px; right: 32px; font-size: 24px; line-height: 1; }
+    .lightbox-prev { left: 32px; top: 50%; transform: translateY(-50%); font-size: 22px; }
+    .lightbox-next { right: 32px; top: 50%; transform: translateY(-50%); font-size: 22px; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold-light);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+    }
 
     /* FAQ */
     .faq { padding: 100px 80px; background: var(--warm-white); }
@@ -697,8 +768,14 @@
       .process-text-block { flex: 1; padding-top: 6px; }
       .service-list-wrap { max-height: 600px; opacity: 1; margin-bottom: 18px; }
       .service-hint { display: none; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .gallery-item:nth-child(1) { grid-column: span 2; height: 300px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
+      .gallery-item.feature-hero { grid-column: span 2; grid-row: span 2; }
+      .gallery-item.feature-wide { grid-column: span 2; grid-row: span 1; }
+      .gallery-item.feature-tall { grid-column: span 1; grid-row: span 2; }
+      .lightbox { padding: 20px; }
+      .lightbox-close { top: 12px; right: 12px; }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
       nav { padding: 18px 24px; top: 0; z-index: 210; }
       .lang-bar { display: none; }
       .nav-links { display: none; }
@@ -973,28 +1050,81 @@
     <h2 class="section-title"><span class="en-text">Moments we've <em>treasured</em></span><span class="vi-text">Những khoảnh khắc <em>trân trọng</em></span></h2>
   </div>
   <div class="gallery-grid reveal" style="transition-delay:0.1s">
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot6-GalleryLandscape.JPG" alt="First dance">
-      <div class="gallery-overlay"><span><span class="en-inline">First dance</span><span class="vi-inline">Điệu nhảy đầu tiên</span></span></div>
+    <!-- Hero: Photo 9 — champagne with gold confetti, the brand-color showpiece -->
+    <div class="gallery-item feature-hero" onclick="openLightbox(0)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%289%29.jpg" alt="Champagne celebration">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
     </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot7-GalleryTeaPortrait.JPG" alt="Tea ceremony">
-      <div class="gallery-overlay"><span><span class="en-inline">Tea ceremony</span><span class="vi-inline">Lễ Gia Tiên</span></span></div>
+    <!-- Photo 1 — bouquet raise (portrait, square-cropped) -->
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%281%29.jpg" alt="Wedding entrance">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
     </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot10-GalleryAoDaiPortrait.JPG" alt="Áo dài">
-      <div class="gallery-overlay"><span><span class="en-inline">Áo dài</span><span class="vi-inline">Áo dài</span></span></div>
+    <!-- Photo 3 — vow exchange (portrait, square-cropped) -->
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%283%29.jpg" alt="Vow exchange">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
     </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot8-GalleryFlowersPortrait.JPG" alt="Florals">
-      <div class="gallery-overlay"><span><span class="en-inline">Florals</span><span class="vi-inline">Hoa cưới</span></span></div>
+    <!-- Photo 5 — quiet moment (portrait, square-cropped) -->
+    <div class="gallery-item" onclick="openLightbox(3)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%285%29.jpg" alt="A quiet moment">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
     </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot9-GalleryTeaLandscape.JPG" alt="Reception">
-      <div class="gallery-overlay"><span><span class="en-inline">The reception</span><span class="vi-inline">Tiệc cưới</span></span></div>
+    <!-- Photo 13 — ceremony portrait (TALL) -->
+    <div class="gallery-item feature-tall" onclick="openLightbox(4)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%2813%29.jpg" alt="The ceremony">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 4 — walking down the aisle (WIDE) -->
+    <div class="gallery-item feature-wide" onclick="openLightbox(5)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%284%29.jpg" alt="Walking down the aisle">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 11 — bilingual MC (square-cropped) -->
+    <div class="gallery-item" onclick="openLightbox(6)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%2811%29.jpg" alt="Bilingual MC">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 7 — flower girls with bubbles (WIDE) -->
+    <div class="gallery-item feature-wide" onclick="openLightbox(7)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%287%29.jpg" alt="Flower girls">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 2 — first dance spin (TALL) -->
+    <div class="gallery-item feature-tall" onclick="openLightbox(8)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%282%29.jpg" alt="First dance">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 8 — beach recessional (WIDE) -->
+    <div class="gallery-item feature-wide" onclick="openLightbox(9)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%288%29.jpg" alt="Beach recessional">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 6 — overhead reception (WIDE) -->
+    <div class="gallery-item feature-wide" onclick="openLightbox(10)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%286%29.jpg" alt="The reception">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 12 — MC and groom by floral arch (WIDE) -->
+    <div class="gallery-item feature-wide" onclick="openLightbox(11)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%2812%29.jpg" alt="Ceremony moment">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+    </div>
+    <!-- Photo 10 — floral arch by the sea (WIDE) -->
+    <div class="gallery-item feature-wide" onclick="openLightbox(12)">
+      <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Gallery%20%2810%29.jpg" alt="Floral arch by the sea">
+      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" onclick="lightboxBgClick(event)">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <button class="lightbox-prev" onclick="lightboxPrev()" aria-label="Previous">‹</button>
+  <button class="lightbox-next" onclick="lightboxNext()" aria-label="Next">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt="">
+  <div class="lightbox-counter" id="lightboxCounter">1 / 13</div>
+</div>
 
 <section class="process" id="process">
   <div class="process-header reveal">
@@ -1360,6 +1490,68 @@
   // Close menu on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMenu();
+  });
+
+  // LIGHTBOX
+  var galleryImages = [];
+  var currentLightboxIdx = 0;
+
+  function buildGalleryList() {
+    var imgs = document.querySelectorAll('.gallery-item img');
+    galleryImages = Array.prototype.map.call(imgs, function(img) { return img.src; });
+  }
+
+  function openLightbox(idx) {
+    if (galleryImages.length === 0) buildGalleryList();
+    currentLightboxIdx = idx;
+    showLightboxImage();
+    document.body.classList.add('lightbox-open');
+    document.getElementById('lightbox').setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    document.body.classList.remove('lightbox-open');
+    document.getElementById('lightbox').setAttribute('aria-hidden', 'true');
+  }
+
+  function showLightboxImage() {
+    var img = document.getElementById('lightboxImg');
+    var counter = document.getElementById('lightboxCounter');
+    img.classList.add('loading');
+    var src = galleryImages[currentLightboxIdx];
+    var preload = new Image();
+    preload.onload = function() {
+      img.src = src;
+      img.classList.remove('loading');
+    };
+    preload.onerror = function() {
+      img.src = src;
+      img.classList.remove('loading');
+    };
+    preload.src = src;
+    counter.textContent = (currentLightboxIdx + 1) + ' / ' + galleryImages.length;
+  }
+
+  function lightboxPrev() {
+    currentLightboxIdx = (currentLightboxIdx - 1 + galleryImages.length) % galleryImages.length;
+    showLightboxImage();
+  }
+
+  function lightboxNext() {
+    currentLightboxIdx = (currentLightboxIdx + 1) % galleryImages.length;
+    showLightboxImage();
+  }
+
+  function lightboxBgClick(e) {
+    // Close only if clicking the dark background, not the image or controls
+    if (e.target.id === 'lightbox') closeLightbox();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.body.classList.contains('lightbox-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') lightboxPrev();
+    else if (e.key === 'ArrowRight') lightboxNext();
   });
 
   function handleSubmit(btn) {
