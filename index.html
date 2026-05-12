@@ -243,7 +243,6 @@
       transform: scaleX(0); transition: transform 0.4s;
     }
     .service-card:hover::before { transform: scaleX(1); }
-    .service-icon { font-size: 32px; margin-bottom: 20px; }
     .service-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--charcoal); margin-bottom: 4px; }
     .service-name-vi { font-family: 'Noto Serif', serif; font-size: 13px; font-style: italic; color: var(--gold-dark); margin-bottom: 20px; }
     .service-pricing { padding: 16px 0; border-top: 1px solid rgba(201,169,110,0.25); border-bottom: 1px solid rgba(201,169,110,0.25); margin-bottom: 18px; }
@@ -302,6 +301,99 @@
       transition: opacity 0.3s ease;
     }
     .service-card:hover .service-hint { opacity: 0; }
+
+    /* PROCESS TIMELINE */
+    .process { background: var(--cream); padding: 100px 80px; }
+    .process-header { text-align: center; margin-bottom: 24px; }
+    .process-subtitle {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 72px;
+      font-size: 15px;
+      font-weight: 300;
+      color: #6b5a52;
+      line-height: 1.7;
+    }
+    .process-track {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .process-line {
+      position: absolute;
+      top: 38px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-light) 8%, var(--gold-light) 92%, transparent);
+      z-index: 1;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 4px;
+    }
+    .process-num {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--warm-white);
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-dark);
+      margin-bottom: 24px;
+      transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+    }
+    .process-num-digit {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .process-step:hover .process-num {
+      background: var(--gold);
+      color: var(--warm-white);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(201,169,110,0.35);
+    }
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .process-title-vi {
+      font-family: 'Noto Serif', serif;
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-dark);
+      margin-bottom: 16px;
+    }
+    body.vi .process-title-vi {
+      font-family: 'Quicksand', sans-serif;
+      font-style: normal;
+    }
+    .process-body {
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #6b5a52;
+    }
 
     .gallery { padding: 100px 80px; }
     .gallery-header { margin-bottom: 48px; }
@@ -464,6 +556,19 @@
       .story, .contact, .cultural { grid-template-columns: 1fr; gap: 48px; }
       .story-images { height: 440px; }
       .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; gap: 40px; }
+      .process-line {
+        top: 0;
+        bottom: 0;
+        left: 38px;
+        right: auto;
+        width: 1px;
+        height: auto;
+        background: linear-gradient(to bottom, transparent, var(--gold-light) 8%, var(--gold-light) 92%, transparent);
+      }
+      .process-step { flex-direction: row; align-items: flex-start; text-align: left; gap: 24px; }
+      .process-num { margin-bottom: 0; flex-shrink: 0; }
+      .process-text-block { flex: 1; padding-top: 6px; }
       .service-list-wrap { max-height: 600px; opacity: 1; margin-bottom: 18px; }
       .service-hint { display: none; }
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
@@ -508,6 +613,7 @@
   <ul class="nav-links">
     <li><a href="#story"><span class="en-inline">Our Story</span><span class="vi-inline">Câu Chuyện</span></a></li>
     <li><a href="#services"><span class="en-inline">Services</span><span class="vi-inline">Dịch Vụ</span></a></li>
+    <li><a href="#process"><span class="en-inline">Process</span><span class="vi-inline">Quy Trình</span></a></li>
     <li><a href="#gallery"><span class="en-inline">Gallery</span><span class="vi-inline">Thư Viện</span></a></li>
     <li><a href="#faq"><span class="en-inline">FAQ</span><span class="vi-inline">Câu Hỏi</span></a></li>
     <li><a href="#contact"><span class="en-inline">Contact</span><span class="vi-inline">Liên Hệ</span></a></li>
@@ -598,7 +704,6 @@
 
     <!-- DAY-OF COORDINATION (leftmost) -->
     <div class="service-card reveal" tabindex="0">
-      <div class="service-icon">🌺</div>
       <h3 class="service-name"><span class="en-inline">Day-of Coordination</span><span class="vi-inline">Điều Phối Ngày Cưới</span></h3>
       <p class="service-name-vi"><span class="en-inline">Điều phối trong ngày</span><span class="vi-inline">Day-of Coordination</span></p>
       <div class="service-pricing">
@@ -630,7 +735,6 @@
 
     <!-- PARTIAL PLANNING (middle) -->
     <div class="service-card reveal" style="transition-delay:0.1s" tabindex="0">
-      <div class="service-icon">🏮</div>
       <h3 class="service-name"><span class="en-inline">Partial Planning</span><span class="vi-inline">Lên Kế Hoạch Một Phần</span></h3>
       <p class="service-name-vi"><span class="en-inline">Lên kế hoạch một phần</span><span class="vi-inline">Partial Planning</span></p>
       <div class="service-pricing">
@@ -663,7 +767,6 @@
 
     <!-- FULL PLANNING (rightmost) -->
     <div class="service-card reveal" style="transition-delay:0.2s" tabindex="0">
-      <div class="service-icon">🌸</div>
       <h3 class="service-name"><span class="en-inline">Full Planning</span><span class="vi-inline">Lên Kế Hoạch Toàn Bộ</span></h3>
       <p class="service-name-vi"><span class="en-inline">Lên kế hoạch toàn bộ</span><span class="vi-inline">Full Planning</span></p>
       <div class="service-pricing">
@@ -723,6 +826,100 @@
     <div class="gallery-item">
       <img src="https://raw.githubusercontent.com/cnguyen2b/hhwedding/main/Slot9-GalleryTeaLandscape.JPG" alt="Reception">
       <div class="gallery-overlay"><span><span class="en-inline">The reception</span><span class="vi-inline">Tiệc cưới</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="process-header reveal">
+    <p class="section-tag">
+      <span class="en-inline">Our Process · Quy Trình</span>
+      <span class="vi-inline">Quy Trình · Our Process</span>
+    </p>
+    <h2 class="section-title">
+      <span class="en-text">How it <em>works</em></span>
+      <span class="vi-text">Cách chúng tôi <em>đồng hành</em></span>
+    </h2>
+  </div>
+  <p class="process-subtitle reveal">
+    <span class="en-text">From your first message to your first dance</span>
+    <span class="vi-text">Từ tin nhắn đầu tiên đến điệu nhảy đầu tiên</span>
+  </p>
+
+  <div class="process-track reveal" style="transition-delay:0.1s">
+    <div class="process-line" aria-hidden="true"></div>
+    <div class="process-steps">
+
+      <div class="process-step">
+        <div class="process-num">
+          <span class="process-num-digit">1</span>
+        </div>
+        <div class="process-text-block">
+          <h3 class="process-title"><span class="en-inline">Say hello</span><span class="vi-inline">Gửi lời chào</span></h3>
+          <p class="process-title-vi"><span class="en-inline">Gửi lời chào</span><span class="vi-inline">Say hello</span></p>
+          <p class="process-body">
+            <span class="en-text">Drop us a message — in English, Vietnamese, or both. Tell us your date and a little about your vision. We'll reply within 48 hours.</span>
+            <span class="vi-text">Hãy nhắn cho chúng tôi — bằng tiếng Anh, tiếng Việt, hoặc cả hai. Cho chúng tôi biết ngày cưới và một chút về tầm nhìn của bạn. Chúng tôi sẽ phản hồi trong vòng 48 giờ.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">
+          <span class="process-num-digit">2</span>
+        </div>
+        <div class="process-text-block">
+          <h3 class="process-title"><span class="en-inline">Free consultation</span><span class="vi-inline">Tư vấn miễn phí</span></h3>
+          <p class="process-title-vi"><span class="en-inline">Tư vấn miễn phí</span><span class="vi-inline">Free consultation</span></p>
+          <p class="process-body">
+            <span class="en-text">A relaxed 30-minute call — Zoom, phone, or in person in Chicago. We'll hear your story and find the right package together. No pressure.</span>
+            <span class="vi-text">Một cuộc gọi nhẹ nhàng 30 phút — qua Zoom, điện thoại, hoặc gặp trực tiếp tại Chicago. Chúng tôi sẽ lắng nghe câu chuyện của bạn và cùng tìm gói dịch vụ phù hợp. Không áp lực.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">
+          <span class="process-num-digit">3</span>
+        </div>
+        <div class="process-text-block">
+          <h3 class="process-title"><span class="en-inline">We plan together</span><span class="vi-inline">Cùng lên kế hoạch</span></h3>
+          <p class="process-title-vi"><span class="en-inline">Cùng lên kế hoạch</span><span class="vi-inline">We plan together</span></p>
+          <p class="process-body">
+            <span class="en-text">We get to work — vendors, ceremonies, cultural traditions, family logistics. You stay informed; we handle the details.</span>
+            <span class="vi-text">Chúng tôi bắt tay vào việc — nhà cung cấp, nghi lễ, truyền thống văn hóa, hậu cần gia đình. Bạn luôn được cập nhật; chúng tôi lo từng chi tiết.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">
+          <span class="process-num-digit">4</span>
+        </div>
+        <div class="process-text-block">
+          <h3 class="process-title"><span class="en-inline">Your wedding day</span><span class="vi-inline">Ngày trọng đại</span></h3>
+          <p class="process-title-vi"><span class="en-inline">Ngày trọng đại</span><span class="vi-inline">Your wedding day</span></p>
+          <p class="process-body">
+            <span class="en-text">You get ready and enjoy every moment. We manage everything — vendors, timeline, both families — so you don't have to think about a thing.</span>
+            <span class="vi-text">Bạn chuẩn bị và tận hưởng từng khoảnh khắc. Chúng tôi quản lý mọi thứ — nhà cung cấp, lịch trình, cả hai gia đình — để bạn không phải lo nghĩ điều gì.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">
+          <span class="process-num-digit">5</span>
+        </div>
+        <div class="process-text-block">
+          <h3 class="process-title"><span class="en-inline">Just be present</span><span class="vi-inline">Tận hưởng trọn vẹn</span></h3>
+          <p class="process-title-vi"><span class="en-inline">Tận hưởng trọn vẹn</span><span class="vi-inline">Just be present</span></p>
+          <p class="process-body">
+            <span class="en-text">Dance, cry happy tears, hold each other close. The day is yours — that's why we do this.</span>
+            <span class="vi-text">Nhảy múa, rơi nước mắt hạnh phúc, ôm nhau thật chặt. Ngày này là của bạn — đó là lý do chúng tôi làm điều này.</span>
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
