@@ -118,6 +118,142 @@
     }
     .nav-cta:hover { background: var(--gold); color: var(--warm-white); }
 
+    /* MOBILE NAV — hamburger + overlay */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      width: 44px;
+      height: 44px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      z-index: 201;
+      position: relative;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--charcoal);
+      transition: transform 0.35s ease, opacity 0.2s ease, background 0.3s ease;
+      transform-origin: center;
+    }
+    body.menu-open .nav-toggle span { background: var(--charcoal); }
+    body.menu-open .nav-toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    body.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    body.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+      padding: 60px 32px;
+    }
+    body.menu-open .mobile-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0s;
+    }
+    body.menu-open { overflow: hidden; }
+    .mobile-menu-decor {
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .mobile-menu a.mobile-link {
+      text-decoration: none;
+      color: var(--charcoal);
+      text-align: center;
+      display: block;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+    }
+    .mobile-menu a.mobile-link:hover,
+    .mobile-menu a.mobile-link:focus {
+      color: var(--gold-dark);
+    }
+    .mobile-link-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.1;
+      display: block;
+    }
+    .mobile-link-vi {
+      font-family: 'Noto Serif', serif;
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-dark);
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      display: block;
+    }
+    body.vi .mobile-link-en {
+      font-family: 'Noto Serif', serif;
+      font-size: 28px;
+    }
+    body.vi .mobile-link-vi {
+      font-family: 'Quicksand', sans-serif;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 11px;
+    }
+    .mobile-menu-cta {
+      margin-top: 16px;
+      padding: 16px 32px;
+      background: var(--gold);
+      color: var(--warm-white);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .mobile-menu-cta:hover { background: var(--gold-dark); }
+    .mobile-menu-lang {
+      display: flex;
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .mobile-menu-lang button {
+      padding: 6px 20px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--gold-dark);
+      transition: all 0.3s;
+    }
+    .mobile-menu-lang button.active {
+      background: var(--gold);
+      color: var(--warm-white);
+    }
+
     .vi-text { display: none; }
     .vi-inline { display: none; }
     body.vi .en-text { display: none; }
@@ -303,7 +439,9 @@
     .service-card:hover .service-hint { opacity: 0; }
 
     /* PROCESS TIMELINE */
-    .process { background: var(--cream); padding: 100px 80px; }
+    .process { background: var(--charcoal); padding: 100px 80px; color: var(--cream); }
+    .process .section-title { color: var(--cream); }
+    .process .section-tag { color: var(--gold-light); }
     .process-header { text-align: center; margin-bottom: 24px; }
     .process-subtitle {
       text-align: center;
@@ -311,7 +449,7 @@
       margin: 0 auto 72px;
       font-size: 15px;
       font-weight: 300;
-      color: #6b5a52;
+      color: rgba(253,246,238,0.7);
       line-height: 1.7;
     }
     .process-track {
@@ -325,7 +463,7 @@
       left: 8%;
       right: 8%;
       height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold-light) 8%, var(--gold-light) 92%, transparent);
+      background: linear-gradient(to right, transparent, rgba(232,213,163,0.55) 8%, rgba(232,213,163,0.55) 92%, transparent);
       z-index: 1;
     }
     .process-steps {
@@ -346,7 +484,7 @@
       width: 76px;
       height: 76px;
       border-radius: 50%;
-      background: var(--warm-white);
+      background: var(--cream);
       border: 1.5px solid var(--gold);
       display: flex;
       align-items: center;
@@ -354,7 +492,7 @@
       font-family: 'Cormorant Garamond', serif;
       color: var(--gold-dark);
       margin-bottom: 24px;
-      transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+      transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
       position: relative;
     }
     .process-num-digit {
@@ -366,13 +504,13 @@
       background: var(--gold);
       color: var(--warm-white);
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(201,169,110,0.35);
+      box-shadow: 0 8px 24px rgba(201,169,110,0.5);
     }
     .process-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
       font-weight: 400;
-      color: var(--charcoal);
+      color: var(--cream);
       margin-bottom: 4px;
       line-height: 1.2;
     }
@@ -381,7 +519,7 @@
       font-size: 13px;
       font-style: italic;
       font-weight: 300;
-      color: var(--gold-dark);
+      color: var(--gold-light);
       margin-bottom: 16px;
     }
     body.vi .process-title-vi {
@@ -392,7 +530,7 @@
       font-size: 13.5px;
       font-weight: 300;
       line-height: 1.75;
-      color: #6b5a52;
+      color: rgba(253,246,238,0.7);
     }
 
     .gallery { padding: 100px 80px; }
@@ -414,18 +552,6 @@
     .gallery-item:hover .gallery-overlay { background: rgba(44,36,32,0.25); }
     .gallery-overlay span { color: white; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; opacity: 0; transform: translateY(8px); transition: all 0.3s; }
     .gallery-item:hover .gallery-overlay span { opacity: 1; transform: translateY(0); }
-
-    .cultural { background: var(--charcoal); padding: 100px 80px; color: var(--cream); }
-    .cultural .section-tag { color: var(--gold-light); }
-    .cultural .section-title { color: var(--cream); }
-    .cultural .section-vi { color: var(--gold-light); }
-    .cultural .section-body { color: rgba(253,246,238,0.7); }
-    .cultural-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
-    .cultural-feat { border-top: 1px solid rgba(201,169,110,0.3); padding-top: 20px; }
-    .cultural-feat-icon { font-size: 24px; margin-bottom: 10px; }
-    .cultural-feat-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--gold-light); margin-bottom: 6px; }
-    .cultural-feat-vi { font-family: 'Noto Serif', serif; font-size: 12px; font-style: italic; color: var(--gold); margin-bottom: 8px; }
-    .cultural-feat-desc { font-size: 13px; font-weight: 300; color: rgba(253,246,238,0.6); line-height: 1.7; }
 
     /* FAQ */
     .faq { padding: 100px 80px; background: var(--warm-white); }
@@ -553,7 +679,7 @@
       .hero { grid-template-columns: 1fr; }
       .hero-right { height: 400px; position: relative; }
       .hero-left { padding: 60px 32px; }
-      .story, .contact, .cultural { grid-template-columns: 1fr; gap: 48px; }
+      .story, .contact { grid-template-columns: 1fr; gap: 48px; }
       .story-images { height: 440px; }
       .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; gap: 40px; }
@@ -564,7 +690,7 @@
         right: auto;
         width: 1px;
         height: auto;
-        background: linear-gradient(to bottom, transparent, var(--gold-light) 8%, var(--gold-light) 92%, transparent);
+        background: linear-gradient(to bottom, transparent, rgba(232,213,163,0.55) 8%, rgba(232,213,163,0.55) 92%, transparent);
       }
       .process-step { flex-direction: row; align-items: flex-start; text-align: left; gap: 24px; }
       .process-num { margin-bottom: 0; flex-shrink: 0; }
@@ -573,9 +699,12 @@
       .service-hint { display: none; }
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
       .gallery-item:nth-child(1) { grid-column: span 2; height: 300px; }
-      nav { padding: 18px 24px; }
+      nav { padding: 18px 24px; top: 0; z-index: 210; }
+      .lang-bar { display: none; }
       .nav-links { display: none; }
-      .story, .services, .gallery, .cultural, .testimonials, .faq, .contact, footer { padding-left: 24px; padding-right: 24px; }
+      .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .story, .services, .gallery, .process, .testimonials, .faq, .contact, footer { padding-left: 24px; padding-right: 24px; }
     }
 
     @keyframes fadeUp {
@@ -622,7 +751,44 @@
     <span class="en-inline">Begin Your Journey</span>
     <span class="vi-inline">Bắt Đầu</span>
   </a>
+  <button class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-decor">✦</div>
+  <a href="#story" class="mobile-link" onclick="closeMenu()">
+    <span class="mobile-link-en"><span class="en-inline">Our Story</span><span class="vi-inline">Câu Chuyện</span></span>
+    <span class="mobile-link-vi"><span class="en-inline">Câu Chuyện</span><span class="vi-inline">Our Story</span></span>
+  </a>
+  <a href="#services" class="mobile-link" onclick="closeMenu()">
+    <span class="mobile-link-en"><span class="en-inline">Services</span><span class="vi-inline">Dịch Vụ</span></span>
+    <span class="mobile-link-vi"><span class="en-inline">Dịch Vụ</span><span class="vi-inline">Services</span></span>
+  </a>
+  <a href="#process" class="mobile-link" onclick="closeMenu()">
+    <span class="mobile-link-en"><span class="en-inline">Process</span><span class="vi-inline">Quy Trình</span></span>
+    <span class="mobile-link-vi"><span class="en-inline">Quy Trình</span><span class="vi-inline">Process</span></span>
+  </a>
+  <a href="#gallery" class="mobile-link" onclick="closeMenu()">
+    <span class="mobile-link-en"><span class="en-inline">Gallery</span><span class="vi-inline">Thư Viện</span></span>
+    <span class="mobile-link-vi"><span class="en-inline">Thư Viện</span><span class="vi-inline">Gallery</span></span>
+  </a>
+  <a href="#faq" class="mobile-link" onclick="closeMenu()">
+    <span class="mobile-link-en"><span class="en-inline">FAQ</span><span class="vi-inline">Câu Hỏi</span></span>
+    <span class="mobile-link-vi"><span class="en-inline">Câu Hỏi</span><span class="vi-inline">FAQ</span></span>
+  </a>
+  <a href="#contact" class="mobile-menu-cta" onclick="closeMenu()">
+    <span class="en-inline">Begin Your Journey</span>
+    <span class="vi-inline">Bắt Đầu</span>
+  </a>
+  <div class="mobile-menu-lang">
+    <button id="mobBtnEn" onclick="setLang('en')" class="active">EN</button>
+    <button id="mobBtnVi" onclick="setLang('vi')">VI</button>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-left">
@@ -924,44 +1090,6 @@
   </div>
 </section>
 
-<section class="cultural" id="cultural">
-  <div class="reveal">
-    <p class="section-tag"><span class="en-inline">Our Speciality</span><span class="vi-inline">Đặc Trưng Của Chúng Tôi</span></p>
-    <h2 class="section-title"><span class="en-text">Honouring both<br><em>traditions</em></span><span class="vi-text">Tôn vinh cả hai<br><em>truyền thống</em></span></h2>
-    <p class="section-vi"><span class="en-inline">Nơi truyền thống gặp gỡ hiện đại</span><span class="vi-inline">Tradition and modernity in harmony</span></p>
-    <p class="section-body">
-      <span class="en-text">We understand both worlds intimately, because we lived it. Our weddings seamlessly blend Vietnamese customs like the tea ceremony and Áo dài with Western wedding traditions, creating an experience that deeply honours every family member present.</span>
-      <span class="vi-text">Chúng tôi hiểu sâu sắc cả hai thế giới, vì chúng tôi đã sống trong đó. Đám cưới của chúng tôi kết hợp hài hòa phong tục Việt Nam như Lễ Gia Tiên và áo dài với truyền thống cưới phương Tây.</span>
-    </p>
-    <div class="cultural-features">
-      <div class="cultural-feat">
-        <div class="cultural-feat-icon">🏮</div>
-        <div class="cultural-feat-title"><span class="en-inline">Tea Ceremony</span><span class="vi-inline">Lễ Gia Tiên</span></div>
-        <div class="cultural-feat-vi"><span class="en-inline">Lễ Gia Tiên</span><span class="vi-inline">Tea Ceremony</span></div>
-        <p class="cultural-feat-desc"><span class="en-text">Solemn, meaningful, emotionally complete</span><span class="vi-text">Trang trọng, ý nghĩa và trọn vẹn cảm xúc</span></p>
-      </div>
-      <div class="cultural-feat">
-        <div class="cultural-feat-icon">🌺</div>
-        <div class="cultural-feat-title"><span class="en-inline">Family Rituals</span><span class="vi-inline">Nghi Lễ Gia Đình</span></div>
-        <div class="cultural-feat-vi"><span class="en-inline">Nghi lễ gia đình</span><span class="vi-inline">Family Rituals</span></div>
-        <p class="cultural-feat-desc"><span class="en-text">Honouring both families through shared customs and meaningful moments</span><span class="vi-text">Tôn vinh cả hai gia đình qua phong tục chung và những khoảnh khắc ý nghĩa</span></p>
-      </div>
-      <div class="cultural-feat">
-        <div class="cultural-feat-icon">👘</div>
-        <div class="cultural-feat-title">Áo Dài</div>
-        <div class="cultural-feat-vi"><span class="en-inline">Traditional Vietnamese dress</span><span class="vi-inline">Trang phục truyền thống</span></div>
-        <p class="cultural-feat-desc"><span class="en-text">Styling and ceremony coordination</span><span class="vi-text">Tư vấn phong cách và điều phối buổi lễ</span></p>
-      </div>
-      <div class="cultural-feat">
-        <div class="cultural-feat-icon">🎙️</div>
-        <div class="cultural-feat-title"><span class="en-inline">Bilingual Ceremony</span><span class="vi-inline">Lễ Song Ngữ</span></div>
-        <div class="cultural-feat-vi"><span class="en-inline">Lễ cưới song ngữ</span><span class="vi-inline">Bilingual Ceremony</span></div>
-        <p class="cultural-feat-desc"><span class="en-text">Every word in both languages, every guest included</span><span class="vi-text">Mỗi từ bằng cả hai ngôn ngữ, mọi khách đều được bao gồm</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="testimonials">
   <div class="testimonials-header reveal">
     <p class="section-tag"><span class="en-inline">Kind Words</span><span class="vi-inline">Lời Chia Sẻ</span></p>
@@ -1189,16 +1317,50 @@
 
 <script>
   function setLang(lang) {
+    var mobBtnEn = document.getElementById('mobBtnEn');
+    var mobBtnVi = document.getElementById('mobBtnVi');
     if (lang === 'vi') {
       document.body.classList.add('vi');
       document.getElementById('btn-vi').classList.add('active');
       document.getElementById('btn-en').classList.remove('active');
+      if (mobBtnVi) mobBtnVi.classList.add('active');
+      if (mobBtnEn) mobBtnEn.classList.remove('active');
     } else {
       document.body.classList.remove('vi');
       document.getElementById('btn-en').classList.add('active');
       document.getElementById('btn-vi').classList.remove('active');
+      if (mobBtnEn) mobBtnEn.classList.add('active');
+      if (mobBtnVi) mobBtnVi.classList.remove('active');
     }
   }
+
+  function toggleMenu() {
+    var isOpen = document.body.classList.toggle('menu-open');
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  }
+
+  function closeMenu() {
+    if (document.body.classList.contains('menu-open')) {
+      document.body.classList.remove('menu-open');
+      document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+      document.getElementById('navToggle').setAttribute('aria-label', 'Open menu');
+      document.getElementById('mobileMenu').setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  // Close menu when window grows past mobile breakpoint
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 1024) closeMenu();
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
 
   function handleSubmit(btn) {
     var isVi = document.body.classList.contains('vi');
