@@ -463,7 +463,7 @@
 
     .services { background: var(--cream); padding: 100px 80px; }
     .services-header { text-align: center; margin-bottom: 64px; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; align-items: start; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; align-items: start; }
     .service-card {
       background: var(--warm-white);
       padding: 48px 36px;
@@ -639,7 +639,45 @@
     }
 
     .gallery { padding: 100px 80px; }
-    .gallery-header { margin-bottom: 48px; }
+    .gallery-header { margin-bottom: 32px; }
+
+    /* GALLERY TABS — editorial underline style */
+    .gallery-tabs {
+      display: flex;
+      gap: 36px;
+      border-bottom: 1px solid rgba(201,169,110,0.25);
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .gallery-tab {
+      padding: 14px 0;
+      margin-bottom: -1px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: #9c8779;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      white-space: nowrap;
+    }
+    .gallery-tab:hover {
+      color: var(--charcoal);
+    }
+    .gallery-tab.active {
+      color: var(--charcoal);
+      border-bottom-color: var(--gold);
+    }
+    .gallery-panel {
+      display: none;
+    }
+    .gallery-panel.active {
+      display: block;
+    }
     .gallery-grid {
       column-count: 3;
       column-gap: 6px;
@@ -1265,6 +1303,37 @@
       <div class="service-hint"><span class="en-inline">Hover to see details ✦</span><span class="vi-inline">Di chuột để xem chi tiết ✦</span></div>
     </div>
 
+    <!-- CUSTOM EVENTS (4th — engagements, proposals, milestones) -->
+    <div class="service-card reveal" style="transition-delay:0.3s" tabindex="0">
+      <h3 class="service-name"><span class="en-inline">Custom Events</span><span class="vi-inline">Sự Kiện Đặc Biệt</span></h3>
+      <p class="service-name-vi"><span class="en-inline">Engagements, proposals &amp; celebrations</span><span class="vi-inline">Đính hôn, lời cầu hôn &amp; tiệc kỷ niệm</span></p>
+      <div class="service-pricing">
+        <div class="service-from"><span class="en-inline">Starting from</span><span class="vi-inline">Bắt đầu từ</span></div>
+        <div class="service-price">Bespoke</div>
+      </div>
+      <p class="service-booking">
+        <span class="en-text">Pricing tailored to each event · Contact us to begin</span>
+        <span class="vi-text">Giá tùy chỉnh theo từng sự kiện · Liên hệ để bắt đầu</span>
+      </p>
+      <div class="service-list-wrap">
+        <ul class="service-list">
+          <li><span class="en-inline">Concept &amp; theme development</span><span class="vi-inline">Phát triển ý tưởng &amp; chủ đề</span></li>
+          <li><span class="en-inline">Venue scouting &amp; booking</span><span class="vi-inline">Tìm kiếm &amp; đặt địa điểm</span></li>
+          <li><span class="en-inline">Vendor sourcing (photo, flowers, catering, music)</span><span class="vi-inline">Tìm nhà cung cấp (ảnh, hoa, ẩm thực, âm nhạc)</span></li>
+          <li><span class="en-inline">Surprise logistics &amp; secret coordination</span><span class="vi-inline">Hậu cần bất ngờ &amp; điều phối bí mật</span></li>
+          <li><span class="en-inline">Photography &amp; videography direction</span><span class="vi-inline">Chỉ đạo nhiếp ảnh &amp; quay phim</span></li>
+          <li><span class="en-inline">Detailed run-of-show timeline</span><span class="vi-inline">Lịch trình chi tiết</span></li>
+          <li><span class="en-inline">On-site execution &amp; coordination</span><span class="vi-inline">Điều phối &amp; triển khai tại chỗ</span></li>
+          <li><span class="en-inline">Bilingual support for family &amp; guests</span><span class="vi-inline">Hỗ trợ song ngữ cho gia đình &amp; khách</span></li>
+        </ul>
+      </div>
+      <p class="service-tagline">
+        <span class="en-text">Big moments deserve thoughtful planning. Let's design something unforgettable.</span>
+        <span class="vi-text">Những khoảnh khắc lớn xứng đáng được chuẩn bị chu đáo. Hãy cùng tạo nên điều khó quên.</span>
+      </p>
+      <div class="service-hint"><span class="en-inline">Hover to see details ✦</span><span class="vi-inline">Di chuột để xem chi tiết ✦</span></div>
+    </div>
+
   </div>
 </section>
 
@@ -1273,71 +1342,186 @@
     <p class="section-tag"><span class="en-inline">Our Portfolio</span><span class="vi-inline">Thư Viện Ảnh</span></p>
     <h2 class="section-title"><span class="en-text">Moments we've <em>treasured</em></span><span class="vi-text">Những khoảnh khắc <em>trân trọng</em></span></h2>
   </div>
-  <div class="gallery-grid reveal" style="transition-delay:0.1s">
-    <!-- 9: champagne celebration — the anchor -->
-    <div class="gallery-item" onclick="openLightbox(0)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%289%29.jpg" alt="Champagne celebration">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+
+  <div class="gallery-tabs reveal">
+    <button class="gallery-tab active" data-tab="portfolio" onclick="switchGalleryTab('portfolio')">Portfolio</button>
+    <button class="gallery-tab" data-tab="julia-christian" onclick="switchGalleryTab('julia-christian')">Julia &amp; Christian</button>
+  </div>
+
+  <!-- TAB 1: General Portfolio (13 photos) -->
+  <div class="gallery-panel active" data-panel="portfolio">
+    <div class="gallery-grid reveal" style="transition-delay:0.1s">
+      <!-- 9: champagne celebration — the anchor -->
+      <div class="gallery-item" onclick="openLightbox(0)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%289%29.jpg" alt="Champagne celebration">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 2: first dance spin -->
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%282%29.jpg" alt="First dance">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 7: flower girls and bubbles -->
+      <div class="gallery-item" onclick="openLightbox(2)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%287%29.jpg" alt="Flower girls">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 1: bouquet raise -->
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%281%29.jpg" alt="Wedding entrance">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 8: beach recessional -->
+      <div class="gallery-item" onclick="openLightbox(4)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%288%29.jpg" alt="Beach recessional">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 13: ceremony at palm arch -->
+      <div class="gallery-item" onclick="openLightbox(5)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2813%29.jpg" alt="The ceremony">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 4: walking down the aisle -->
+      <div class="gallery-item" onclick="openLightbox(6)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%284%29.jpg" alt="Walking down the aisle">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 3: vow exchange -->
+      <div class="gallery-item" onclick="openLightbox(7)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%283%29.jpg" alt="Vow exchange">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 11: bilingual MC -->
+      <div class="gallery-item" onclick="openLightbox(8)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2811%29.jpg" alt="Bilingual MC">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 12: MC and groom at floral arch -->
+      <div class="gallery-item" onclick="openLightbox(9)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2812%29.jpg" alt="Ceremony moment">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 5: a quiet moment -->
+      <div class="gallery-item" onclick="openLightbox(10)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%285%29.jpg" alt="A quiet moment">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 6: overhead reception -->
+      <div class="gallery-item" onclick="openLightbox(11)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%286%29.jpg" alt="The reception">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <!-- 10: floral arch by the sea -->
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2810%29.jpg" alt="Floral arch by the sea">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
     </div>
-    <!-- 2: first dance spin -->
-    <div class="gallery-item" onclick="openLightbox(1)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%282%29.jpg" alt="First dance">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 7: flower girls and bubbles -->
-    <div class="gallery-item" onclick="openLightbox(2)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%287%29.jpg" alt="Flower girls">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 1: bouquet raise -->
-    <div class="gallery-item" onclick="openLightbox(3)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%281%29.jpg" alt="Wedding entrance">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 8: beach recessional -->
-    <div class="gallery-item" onclick="openLightbox(4)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%288%29.jpg" alt="Beach recessional">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 13: ceremony at palm arch -->
-    <div class="gallery-item" onclick="openLightbox(5)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2813%29.jpg" alt="The ceremony">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 4: walking down the aisle -->
-    <div class="gallery-item" onclick="openLightbox(6)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%284%29.jpg" alt="Walking down the aisle">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 3: vow exchange -->
-    <div class="gallery-item" onclick="openLightbox(7)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%283%29.jpg" alt="Vow exchange">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 11: bilingual MC -->
-    <div class="gallery-item" onclick="openLightbox(8)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2811%29.jpg" alt="Bilingual MC">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 12: MC and groom at floral arch -->
-    <div class="gallery-item" onclick="openLightbox(9)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2812%29.jpg" alt="Ceremony moment">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 5: a quiet moment -->
-    <div class="gallery-item" onclick="openLightbox(10)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%285%29.jpg" alt="A quiet moment">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 6: overhead reception -->
-    <div class="gallery-item" onclick="openLightbox(11)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%286%29.jpg" alt="The reception">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-    </div>
-    <!-- 10: floral arch by the sea -->
-    <div class="gallery-item" onclick="openLightbox(12)">
-      <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery%20%2810%29.jpg" alt="Floral arch by the sea">
-      <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+  </div>
+
+  <!-- TAB 2: Julia & Christian Wedding (25 photos) -->
+  <div class="gallery-panel" data-panel="julia-christian">
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(0)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%281%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%282%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(2)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%283%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%284%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(4)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%285%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(5)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%286%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(6)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%287%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(7)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%288%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(8)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%289%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(9)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2810%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(10)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2811%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(11)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2812%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2813%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(13)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2814%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(14)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2815%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(15)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2816%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(16)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2817%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(17)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2818%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(18)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2819%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(19)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2820%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(20)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2821%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(21)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2822%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(22)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2823%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(23)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2824%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(24)">
+        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Julia%26Christian%20%2825%29.jpg" alt="Julia &amp; Christian wedding">
+        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1638,6 +1822,7 @@
         <option>Full Planning / Lên kế hoạch toàn bộ</option>
         <option>Partial Planning / Lên kế hoạch một phần</option>
         <option>Day Coordination / Điều phối trong ngày</option>
+        <option>Custom Events (engagement, proposal, etc.) / Sự kiện đặc biệt</option>
         <option>Not sure yet / Chưa chắc</option>
       </select>
     </div>
@@ -1718,17 +1903,33 @@
     if (e.key === 'Escape') closeMenu();
   });
 
+  // GALLERY TABS
+  function switchGalleryTab(tabName) {
+    var tabs = document.querySelectorAll('.gallery-tab');
+    var panels = document.querySelectorAll('.gallery-panel');
+    tabs.forEach(function(t) {
+      t.classList.toggle('active', t.getAttribute('data-tab') === tabName);
+    });
+    panels.forEach(function(p) {
+      p.classList.toggle('active', p.getAttribute('data-panel') === tabName);
+    });
+    // Reset cached lightbox image list so it rebuilds from the active panel
+    galleryImages = [];
+  }
+
   // LIGHTBOX
   var galleryImages = [];
   var currentLightboxIdx = 0;
 
   function buildGalleryList() {
-    var imgs = document.querySelectorAll('.gallery-item img');
+    // Scope to the currently visible gallery panel only
+    var imgs = document.querySelectorAll('.gallery-panel.active .gallery-item img');
     galleryImages = Array.prototype.map.call(imgs, function(img) { return img.src; });
   }
 
   function openLightbox(idx) {
-    if (galleryImages.length === 0) buildGalleryList();
+    // Always rebuild so we get the current tab's images
+    buildGalleryList();
     currentLightboxIdx = idx;
     showLightboxImage();
     document.body.classList.add('lightbox-open');
