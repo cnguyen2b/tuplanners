@@ -470,7 +470,7 @@
 
     .services { background: var(--cream); padding: 100px 80px; }
     .services-header { text-align: center; margin-bottom: 64px; }
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; align-items: start; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; align-items: start; }
     .service-card {
       background: var(--warm-white);
       padding: 48px 36px;
@@ -990,6 +990,10 @@
     .footer-tagline { font-family: 'Noto Serif', serif; font-size: 13px; font-style: italic; color: var(--gold-light); margin-top: 4px; }
     .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; font-weight: 300; }
 
+    @media (max-width: 1280px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero-right { height: 400px; position: relative; }
@@ -1389,8 +1393,8 @@
     </div>
   </div>
 
-  <!-- TAB 3: Giang & CJ Wedding (15 photos) -->
-  <!-- Upload photos to GitHub as: Gallery-Giang&CJ (01).jpg through Gallery-Giang&CJ (15).jpg -->
+  <!-- TAB 2: Giang & CJ Wedding (14 photos) -->
+  <!-- Upload photos to GitHub as: Gallery-Giang&CJ (01).jpg through Gallery-Giang&CJ (14).jpg -->
   <div class="gallery-panel" data-panel="giang-cj">
     <div class="gallery-grid">
       <div class="gallery-item" onclick="openLightbox(0)">
@@ -1447,10 +1451,6 @@
       </div>
       <div class="gallery-item" onclick="openLightbox(13)">
         <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Giang%26CJ%20%2814%29.jpg" alt="Giang &amp; CJ wedding">
-        <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(14)">
-        <img src="https://raw.githubusercontent.com/cnguyen2b/tuplanners/main/Gallery-Giang%26CJ%20%2815%29.jpg" alt="Giang &amp; CJ wedding">
         <div class="gallery-overlay"><span><span class="en-inline">View</span><span class="vi-inline">Xem</span></span></div>
       </div>
     </div>
