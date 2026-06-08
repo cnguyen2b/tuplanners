@@ -80,6 +80,13 @@
     nav { top: 0 !important; }
     /* Force Vietnamese text spans hidden regardless of any other rules */
     .vi-text, .vi-inline { display: none !important; }
+    /* Hide decorative Vietnamese subtexts (keep hero "Nơi ta cùng về" via hero-tu-tagline-sub) */
+    .section-vi,
+    .service-name-vi,
+    .process-title-vi,
+    .faq-q-secondary,
+    .contact-detail-vi,
+    .mobile-link-vi { display: none !important; }
     /* ============================================================ */
 
     .lang-bar {
@@ -1526,7 +1533,7 @@
 <section class="process" id="process">
   <div class="process-header reveal">
     <p class="section-tag">
-      <span class="en-inline">Our Process · Quy Trình</span>
+      <span class="en-inline">Our Process</span>
       <span class="vi-inline">Quy Trình · Our Process</span>
     </p>
     <h2 class="section-title">
