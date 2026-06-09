@@ -1,2 +1,2 @@
 https://cnguyen2b.github.io/tuplanners
-tuplanners.com
+https://www.tuplanners.com
