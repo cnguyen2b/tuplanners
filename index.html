@@ -697,20 +697,19 @@
       display: block;
     }
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
+      position: relative;
+      width: 100%;
     }
     .gallery-item {
+      position: absolute;
       overflow: hidden;
-      position: relative;
       cursor: pointer;
       background: var(--blush);
-      aspect-ratio: 3 / 4;
+      transition: opacity 0.4s ease;
     }
     .gallery-item img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
       transition: transform 0.6s;
       display: block;
@@ -1015,7 +1014,6 @@
       .process-text-block { flex: 1; padding-top: 6px; }
       .service-list-wrap { max-height: 600px; opacity: 1; margin-bottom: 18px; }
       .service-hint { display: none; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .lightbox { padding: 20px; }
       .lightbox-close { top: 12px; right: 12px; }
       .lightbox-prev { left: 8px; }
@@ -1026,9 +1024,6 @@
       .nav-cta { display: none; }
       .nav-toggle { display: flex; }
       .story, .services, .gallery, .process, .testimonials, .faq, .contact, footer { padding-left: 24px; padding-right: 24px; }
-    }
-    @media (max-width: 560px) {
-      .gallery-grid { grid-template-columns: 1fr; }
     }
 
     @keyframes fadeUp {
@@ -1939,6 +1934,7 @@
       p.classList.toggle('active', p.getAttribute('data-panel') === tabName);
     });
     galleryImages = [];
+    layoutMasonry();
   }
 
   function previewGalleryTab(tabName) {
@@ -1957,6 +1953,54 @@
     });
     showGalleryTab(tabName);
   }
+
+  // MASONRY LAYOUT — Pinterest-style, left-to-right order preserved
+  function layoutMasonry() {
+    var panel = document.querySelector('.gallery-panel.active');
+    if (!panel) return;
+    var grid = panel.querySelector('.gallery-grid');
+    if (!grid) return;
+    var items = grid.querySelectorAll('.gallery-item');
+    if (!items.length) return;
+
+    var cols = window.innerWidth <= 560 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+    var gap = 8;
+    var gridWidth = grid.parentElement.clientWidth;
+    var colWidth = (gridWidth - gap * (cols - 1)) / cols;
+    var colHeights = [];
+    for (var c = 0; c < cols; c++) colHeights.push(0);
+
+    items.forEach(function(item) {
+      item.style.width = colWidth + 'px';
+      // Find shortest column
+      var shortest = 0;
+      for (var i = 1; i < cols; i++) {
+        if (colHeights[i] < colHeights[shortest]) shortest = i;
+      }
+      item.style.left = (shortest * (colWidth + gap)) + 'px';
+      item.style.top = colHeights[shortest] + 'px';
+      colHeights[shortest] += item.offsetHeight + gap;
+    });
+
+    var maxH = 0;
+    for (var j = 0; j < colHeights.length; j++) {
+      if (colHeights[j] > maxH) maxH = colHeights[j];
+    }
+    grid.style.height = maxH + 'px';
+  }
+
+  // Re-layout as each image loads (heights change)
+  document.querySelectorAll('.gallery-item img').forEach(function(img) {
+    img.addEventListener('load', layoutMasonry);
+    if (img.complete) layoutMasonry();
+  });
+
+  // Re-layout on resize
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(layoutMasonry, 100);
+  });
 
   // Mark the default tab as selected on load
   selectGalleryTab('julia-christian');
